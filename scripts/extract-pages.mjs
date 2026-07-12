@@ -39,7 +39,8 @@ for (const file of pdfs(ARCHIVE)) {
     if (!docId) { done[file] = "no-match"; noMatch++; continue; }
 
     const data = new Uint8Array(fs.readFileSync(file));
-    const doc = await pdfjs.getDocument({ data, useSystemFonts: true }).promise;
+    const task = pdfjs.getDocument({ data, useSystemFonts: true });
+    const doc = await task.promise;
     let total = 0;
     const pageTexts = [];
     for (let p = 1; p <= Math.min(doc.numPages, 120); p++) {
@@ -48,7 +49,7 @@ for (const file of pdfs(ARCHIVE)) {
       const text = tc.items.map((i) => i.str).join(" ").replace(/\s+/g, " ").trim();
       if (text.length > 80) { pageTexts.push({ p, text: text.slice(0, 4000) }); total += text.length; }
     }
-    await doc.destroy();
+    await task.destroy();
     if (total < 200) { done[file] = "scanned"; noText++; }
     else {
       for (const pt of pageTexts) {
