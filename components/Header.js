@@ -5,6 +5,7 @@ const nav = [
   { href: "/sa", label: "🇸🇦 السعودية" },
   { href: "/library", label: "المكتبة" },
   { href: "/search", label: "البحث الذكي" },
+  { href: "/assistant", label: "المساعد" },
   { href: "/stats", label: "الإحصائيات" },
   { href: "/vault", label: "الخزنة" },
   { href: "/cases", label: "الحالات" },

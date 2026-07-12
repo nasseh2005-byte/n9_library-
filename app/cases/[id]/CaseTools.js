@@ -8,7 +8,23 @@ export default function CaseTools({ caseId, status }) {
   const [q, setQ] = useState("");
   const [hits, setHits] = useState([]);
   const [msg, setMsg] = useState("");
+  const [memo, setMemo] = useState("");
   const router = useRouter();
+
+  async function genMemo() {
+    setMsg("يولّد المذكرة…");
+    const r = await fetch(`/api/memo?id=${caseId}`);
+    const j = await r.json();
+    if (r.ok) { setMemo(j.md); setMsg(`تم ✓ (سند نظامي: ${j.legal_count})`); }
+    else setMsg(j.error || "فشل");
+  }
+  function downloadMemo() {
+    const blob = new Blob([`<html dir="rtl"><meta charset="utf-8"><body style="font-family:Arial">${memo.replace(/^# (.*)$/gm, "<h1>$1</h1>").replace(/^## (.*)$/gm, "<h2>$1</h2>").replace(/\*\*(.*?)\*\*/g, "<b>$1</b>").replace(/\n/g, "<br>")}</body></html>`], { type: "application/msword" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `مذكرة-${caseId}.doc`;
+    a.click();
+  }
 
   async function patch(body) {
     const r = await fetch("/api/cases", {
@@ -53,6 +69,14 @@ export default function CaseTools({ caseId, status }) {
           value={url} onChange={(e) => setUrl(e.target.value)} />
         <button className="btn-ghost" disabled={!url.trim()}
           onClick={() => { patch({ action: "link", url }); setUrl(""); }}>ربط</button>
+      </div>
+
+      <div className="grid gap-2 border-t border-line pt-4">
+        <div className="flex gap-2">
+          <button className="btn-primary" onClick={genMemo}>📝 توليد مذكرة من الملف</button>
+          {memo && <button className="btn-ghost" onClick={downloadMemo}>تنزيل Word</button>}
+        </div>
+        {memo && <textarea className="input min-h-72 text-sm leading-7" value={memo} onChange={(e) => setMemo(e.target.value)} />}
       </div>
 
       <div className="border-t border-line pt-4">

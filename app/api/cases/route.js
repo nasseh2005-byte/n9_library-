@@ -7,7 +7,7 @@ function member(req) { return parseMemberToken(req.cookies.get(MEMBER_COOKIE)?.v
 export async function POST(req) {
   const m = member(req);
   if (!m) return NextResponse.json({ error: "سجّل دخولك أولًا" }, { status: 401 });
-  const { title, case_types = [], custom_type = "", context = "", visibility = "office" } =
+  const { title, case_types = [], custom_type = "", context = "", visibility = "office", deadline = "" } =
     await req.json().catch(() => ({}));
   if (!title?.trim()) return NextResponse.json({ error: "عنوان الحالة مطلوب" }, { status: 400 });
   const types = [...new Set([
@@ -18,6 +18,7 @@ export async function POST(req) {
   const rec = saveCase({
     id: `c-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 5)}`,
     title: title.trim(), case_types: types, status: "مفتوحة",
+    deadline: /^\d{4}-\d{2}-\d{2}$/.test(deadline) ? deadline : null,
     contexts: context.trim() ? [{ text: context.trim(), author: m.user, added_at: new Date().toISOString() }] : [],
     attachments: [], links: [],
     visibility: ["public", "office", "private"].includes(visibility) ? visibility : "office",

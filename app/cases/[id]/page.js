@@ -26,6 +26,15 @@ export default function CasePage({ params }) {
           {c.case_types.map((t) => <span key={t} className="tag-pill">{t}</span>)}
         </div>
         <div className="mt-2 text-xs text-slate-500">{c.owner} • {c.office} • فتحت {String(c.created_at).slice(0, 10)}</div>
+        {c.deadline && (() => {
+          const days = Math.ceil((new Date(c.deadline) - Date.now()) / 86400000);
+          return (
+            <div className={`mt-3 w-fit rounded-lg px-3 py-1.5 text-sm font-bold ${
+              days < 0 ? "bg-red-500/15 text-red-400" : days <= 5 ? "bg-gold/15 text-gold" : "bg-saudi/15 text-saudi-light"}`}>
+              ⏰ المهلة النظامية: {c.deadline} — {days < 0 ? `انقضت منذ ${-days} يوم!` : `باقٍ ${days} يوم`}
+            </div>
+          );
+        })()}
       </div>
 
       <div className="card p-6">

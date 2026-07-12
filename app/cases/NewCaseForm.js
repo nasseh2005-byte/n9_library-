@@ -46,6 +46,11 @@ export default function NewCaseForm({ types }) {
           </div>
           <textarea className="input min-h-24" placeholder="السياق الأول: وقائع الحالة، الأطراف، ما تم حتى الآن…"
             value={form.context} onChange={(e) => setForm({ ...form, context: e.target.value })} />
+          <div className="grid gap-1">
+            <label className="text-xs text-slate-400">المهلة النظامية (اختياري) — للاسترشاد: اعتراض بلدي 30 يومًا، استئناف 30، تظلم إداري 60</label>
+            <input type="date" name="deadline" className="input w-48" dir="ltr"
+              onChange={(e) => setForm({ ...form, deadline: e.target.value })} />
+          </div>
           <div className="flex items-center gap-3">
             <select className="input w-44" value={form.visibility}
               onChange={(e) => setForm({ ...form, visibility: e.target.value })}>
