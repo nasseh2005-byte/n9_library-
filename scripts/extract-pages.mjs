@@ -27,7 +27,7 @@ function* pdfs(dir) {
   }
 }
 
-let scanned = 0, extracted = 0, noText = 0;
+let scanned = 0, extracted = 0, noText = 0, errs = 0, noMatch = 0;
 for (const file of pdfs(ARCHIVE)) {
   if (done[file]) continue;
   scanned++;
@@ -36,9 +36,10 @@ for (const file of pdfs(ARCHIVE)) {
     const base = path.basename(file, ".pdf").replace(/_اصل$/, "");
     const title = base.includes("_") ? base.slice(base.indexOf("_") + 1) : base;
     const docId = byTitle.get(normalizeAr(title));
-    if (!docId) { done[file] = "no-match"; continue; }
+    if (!docId) { done[file] = "no-match"; noMatch++; continue; }
 
-    const doc = await pdfjs.getDocument({ url: file, useSystemFonts: true }).promise;
+    const data = new Uint8Array(fs.readFileSync(file));
+    const doc = await pdfjs.getDocument({ data, useSystemFonts: true }).promise;
     let total = 0;
     const pageTexts = [];
     for (let p = 1; p <= Math.min(doc.numPages, 120); p++) {
@@ -56,12 +57,12 @@ for (const file of pdfs(ARCHIVE)) {
       }
       done[file] = "ok"; extracted++;
     }
-  } catch { done[file] = "err"; }
+  } catch (e) { done[file] = "err"; errs++; if (errs <= 3) console.log("ERR:", e.message?.slice(0, 120)); }
 
   if (scanned % 50 === 0) {
     fs.writeFileSync(PROG, JSON.stringify(done), "utf8");
     fs.writeFileSync(OUT + ".partial", JSON.stringify(records), "utf8");
-    console.log(`تقدم: فحص ${scanned} | مستخرج ${extracted} | ممسوح-بدون-نص ${noText} | صفحات ${records.length}`);
+    console.log(`تقدم: فحص ${scanned} | مستخرج ${extracted} | بدون-نص ${noText} | بدون-مطابقة ${noMatch} | أخطاء ${errs} | صفحات ${records.length}`);
   }
 }
 
