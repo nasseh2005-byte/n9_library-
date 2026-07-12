@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+.env*.local
+.vercel
+*.log
+.DS_Store
+
+# البيانات الخاصة - لا ترفع على GitHub أبدا (أعضاء، أحكام، مرفقات المكاتب)
+private-data/
+run-dev.cmd

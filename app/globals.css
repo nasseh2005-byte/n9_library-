@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-night text-slate-200;
+}
+
+.card {
+  @apply bg-panel border border-line rounded-xl transition-colors;
+}
+
+/* عنوان البوابة: تدرج ذهبي-أخضر */
+.hero-title {
+  background: linear-gradient(120deg, #fff 20%, #d4af37 50%, #54c08a 85%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 0.02em;
+}
+
+.stat-num {
+  @apply text-2xl font-bold text-gold tabular-nums;
+  text-shadow: 0 0 24px rgba(212, 175, 55, 0.25);
+}
+
+h1, h2, h3 { letter-spacing: -0.01em; }
+
+::selection { background: rgba(27, 131, 84, 0.4); }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0b1220; }
+::-webkit-scrollbar-thumb { background: #1e2a44; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #25935f; }
+
+.btn {
+  @apply inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors;
+}
+.btn-primary {
+  @apply btn bg-saudi hover:bg-saudi-light text-white;
+}
+.btn-ghost {
+  @apply btn border border-line hover:border-saudi text-slate-300;
+}
+
+.tag-pill {
+  @apply inline-block rounded-full border border-line bg-night px-3 py-1 text-xs text-slate-300 hover:border-saudi hover:text-saudi-light transition-colors;
+}
+
+.input {
+  @apply w-full rounded-lg border border-line bg-night px-4 py-2.5 text-slate-200 placeholder-slate-500 focus:border-saudi focus:outline-none;
+}
+
+.prose-ar {
+  @apply leading-8 text-slate-300;
+}
+.prose-ar h2 { @apply mt-6 mb-2 text-xl font-bold text-gold; }
+.prose-ar h3 { @apply mt-4 mb-2 text-lg font-bold text-slate-100; }
+.prose-ar p { @apply my-3; }
+.prose-ar ul { @apply my-3 pr-6 list-disc; }
+.prose-ar a { @apply text-saudi-light underline; }
