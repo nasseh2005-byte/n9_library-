@@ -1,24 +1,31 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getMeta } from "@/lib/data";
+import PartnerBar from "@/components/PartnerBar";
 
 export default function Hub() {
   const meta = getMeta();
   return (
     <div className="grid gap-12 py-6">
       <section className="text-center">
-        <div className="mx-auto flex w-fit items-center gap-4">
-          <Image src="/n9-logo.svg" alt="N9" width={72} height={72} priority />
+        <div className="mx-auto flex w-fit items-center gap-5">
+          <span className="rounded-xl bg-white p-2 shadow-xl ring-2 ring-gold/50">
+            <Image src="/n9-logo.png" alt="N9" width={96} height={44} priority className="h-11 w-auto" />
+          </span>
           <div className="text-right">
             <h1 className="hero-title text-5xl font-bold md:text-6xl">N9 LIBRARY</h1>
             <div className="mt-1 text-sm tracking-widest text-muted">المكتبة القانونية الرقمية</div>
           </div>
         </div>
-        <p className="mx-auto mt-6 max-w-2xl leading-9 text-muted">
+        <div className="mx-auto mt-4 h-0.5 w-40 rounded-full"
+          style={{ background: "linear-gradient(90deg, transparent, #C9A227, transparent)" }} />
+        <p className="mx-auto mt-5 max-w-2xl leading-9 text-muted">
           منصة قانونية شاملة — بحث ذكي بالمحتوى، مساعد قانوني مدموج، خزنة خاصة للمكاتب،
           وملفات حالات تعمل فعليًا. ابدأ من البوابة السعودية.
         </p>
       </section>
+
+      <PartnerBar />
 
       {/* البوابة السعودية - بطاقة رئيسية بارزة */}
       <section>
@@ -66,12 +73,16 @@ export default function Hub() {
         ))}
       </section>
 
-      <section className="card flex flex-col items-center justify-between gap-4 border-gold/30 p-7 md:flex-row">
+      <section className="card card-gold flex flex-col items-center justify-between gap-4 p-7 md:flex-row">
         <div>
-          <div className="text-xs font-semibold" style={{ color: "#b8901f" }}>من نفس المطور</div>
-          <h2 className="mt-1 text-xl font-bold" style={{ color: "var(--text)" }}>N9 LAW SYSTEM — إدارة القضايا ومكاتب المحاماة</h2>
+          <div className="text-xs font-semibold text-gold-c">من نفس المطور</div>
+          <h2 className="mt-1 text-xl font-bold">N9 LAW SYSTEM — إدارة القضايا ومكاتب المحاماة</h2>
         </div>
-        <Link href="/n9-law-system" className="btn-primary">تعرف عليه</Link>
+        <div className="flex gap-2">
+          <a href="https://n9-apps-script-edition.vercel.app/" target="_blank" rel="noopener noreferrer"
+            className="btn-primary">جرّب النظام مباشرة ↗</a>
+          <Link href="/n9-law-system" className="btn-ghost">التفاصيل</Link>
+        </div>
       </section>
     </div>
   );

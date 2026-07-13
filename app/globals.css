@@ -2,85 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===== نظام الثيم: متغيرات تتبدل بين الليلي والنهاري ===== */
+/* ===== الهوية القانونية: كحلي ملكي + ذهبي ===== */
 :root, :root[data-theme="dark"] {
-  --bg: #0B1220;
-  --panel: #111A2E;
-  --panel-2: #0d1424;
-  --line: #1E2A44;
-  --text: #e2e8f0;
-  --text-soft: #94a3b8;
-  --text-faint: #64748b;
+  --bg: #0A0F2C;
+  --panel: #121A3F;
+  --panel-2: #0D1333;
+  --line: #26305F;
+  --text: #E8EAF6;
+  --text-soft: #9AA3C7;
+  --text-faint: #6B7499;
+  --gold: #C9A227;
+  --gold-strong: #E3C558;
   color-scheme: dark;
 }
 :root[data-theme="light"] {
-  --bg: #f6f8fb;
-  --panel: #ffffff;
-  --panel-2: #eef2f7;
-  --line: #dbe3ee;
-  --text: #1a2434;
-  --text-soft: #556072;
-  --text-faint: #8a94a6;
+  --bg: #F7F5EF;            /* عاجي رسمي */
+  --panel: #FFFFFF;
+  --panel-2: #F0EDE4;
+  --line: #DDD6C4;
+  --text: #1B2148;          /* كحلي غامق */
+  --text-soft: #4A5378;
+  --text-faint: #8B92AD;
+  --gold: #9A7B1A;
+  --gold-strong: #C9A227;
   color-scheme: light;
 }
 
-body {
-  background-color: var(--bg);
-  color: var(--text);
-}
+body { background-color: var(--bg); color: var(--text); }
+html { background-color: #0A0F2C; }
+html[data-theme="light"] { background-color: #F7F5EF; }
 
-/* منع وميض الثيم قبل تحميل JS */
-html { background-color: #0B1220; }
-html[data-theme="light"] { background-color: #f6f8fb; }
+/* العناوين بخط عربي فخم (Amiri) - الطابع القانوني */
+h1, h2 { font-family: var(--font-amiri), serif; letter-spacing: 0; color: var(--text); }
+h3 { color: var(--text); }
 
 .card {
   background-color: var(--panel);
   border: 1px solid var(--line);
   @apply rounded-xl transition-colors;
 }
+/* خط ذهبي رفيع أعلى البطاقات المهمة */
+.card-gold {
+  border-top: 3px solid var(--gold);
+}
 
 .hero-title {
-  background: linear-gradient(120deg, var(--text) 15%, #d4af37 50%, #25935f 88%);
+  font-family: var(--font-amiri), serif;
+  background: linear-gradient(120deg, var(--text) 25%, var(--gold-strong) 60%, var(--gold) 90%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  letter-spacing: 0.01em;
 }
 
 .stat-num {
   @apply text-2xl font-bold tabular-nums;
-  color: #b8901f;
+  color: var(--gold);
 }
-:root[data-theme="dark"] .stat-num {
-  color: #D4AF37;
-  text-shadow: 0 0 24px rgba(212, 175, 55, 0.25);
-}
+:root[data-theme="dark"] .stat-num { text-shadow: 0 0 24px rgba(201, 162, 39, 0.3); }
 
-h1, h2, h3 { letter-spacing: -0.01em; color: var(--text); }
-
-.text-muted { color: var(--text-soft); }
-.text-faint { color: var(--text-faint); }
-
-::selection { background: rgba(27, 131, 84, 0.35); }
+::selection { background: rgba(201, 162, 39, 0.35); }
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--line); border-radius: 6px; }
-::-webkit-scrollbar-thumb:hover { background: #25935f; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
 
 .btn {
   @apply inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-all;
 }
+/* الزر الرئيسي: ذهبي قانوني بنص كحلي */
 .btn-primary {
-  @apply btn text-white;
-  background-color: #1b8354;
+  @apply btn;
+  background: linear-gradient(135deg, #C9A227, #B08E1E);
+  color: #12183A;
 }
-.btn-primary:hover { background-color: #25935f; box-shadow: 0 4px 16px -4px rgba(27,131,84,0.5); }
+.btn-primary:hover {
+  background: linear-gradient(135deg, #E3C558, #C9A227);
+  box-shadow: 0 4px 18px -4px rgba(201, 162, 39, 0.5);
+}
 .btn-ghost {
   @apply btn;
   border: 1px solid var(--line);
   color: var(--text-soft);
 }
-.btn-ghost:hover { border-color: #1b8354; color: var(--text); }
+.btn-ghost:hover { border-color: var(--gold); color: var(--text); }
 
 .tag-pill {
   display: inline-block;
@@ -89,7 +93,7 @@ h1, h2, h3 { letter-spacing: -0.01em; color: var(--text); }
   color: var(--text-soft);
   @apply rounded-full px-3 py-1 text-xs transition-colors;
 }
-.tag-pill:hover { border-color: #1b8354; color: #25935f; }
+.tag-pill:hover { border-color: var(--gold); color: var(--gold-strong); }
 
 .input {
   width: 100%;
@@ -99,15 +103,22 @@ h1, h2, h3 { letter-spacing: -0.01em; color: var(--text); }
   @apply rounded-lg px-4 py-2.5 transition-colors;
 }
 .input::placeholder { color: var(--text-faint); }
-.input:focus { border-color: #1b8354; outline: none; }
+.input:focus { border-color: var(--gold); outline: none; }
 
 .prose-ar { @apply leading-8; color: var(--text-soft); }
-.prose-ar h2 { @apply mt-6 mb-2 text-xl font-bold; color: #b8901f; }
+.prose-ar h2 { @apply mt-6 mb-2 text-xl font-bold; color: var(--gold); }
 .prose-ar h3 { @apply mt-4 mb-2 text-lg font-bold; color: var(--text); }
 .prose-ar p { @apply my-3; }
 .prose-ar ul { @apply my-3 pr-6 list-disc; }
-.prose-ar a { color: #25935f; @apply underline; }
+.prose-ar a { color: var(--gold); @apply underline; }
 
-/* أدوات مساعدة تتوافق مع الثيم */
 .surface-2 { background-color: var(--panel-2); }
-.border-themed { border-color: var(--line); }
+.text-muted { color: var(--text-soft); }
+.text-faint { color: var(--text-faint); }
+.text-gold-c { color: var(--gold); }
+
+/* شريط التعاون */
+.partner-bar {
+  background: linear-gradient(90deg, rgba(59, 67, 184, 0.12), rgba(201, 162, 39, 0.1));
+  border: 1px solid var(--line);
+}

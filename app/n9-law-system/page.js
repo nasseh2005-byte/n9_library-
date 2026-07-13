@@ -21,9 +21,13 @@ export default function N9LawSystemPage() {
             نظام عربي متكامل لإدارة القضايا والمخالفات ومكاتب المحاماة —
             مصمم لسير العمل الحقيقي في المحاكم والجهات السعودية (معين، ناجز).
           </p>
-          <a href="mailto:NASSEH2005@GMAIL.COM?subject=N9%20LAW%20SYSTEM" className="btn-primary mt-6">
-            تواصل للحصول على النظام
-          </a>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <a href="https://n9-apps-script-edition.vercel.app/" target="_blank" rel="noopener noreferrer"
+              className="btn-primary">جرّب النظام مباشرة ↗</a>
+            <a href="mailto:NASSEH2005@GMAIL.COM?subject=N9%20LAW%20SYSTEM" className="btn-ghost">
+              تواصل للحصول عليه
+            </a>
+          </div>
         </div>
       </section>
       <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

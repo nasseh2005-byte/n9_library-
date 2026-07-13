@@ -1,11 +1,18 @@
 import "./globals.css";
-import { IBM_Plex_Sans_Arabic } from "next/font/google";
+import { IBM_Plex_Sans_Arabic, Amiri } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const font = IBM_Plex_Sans_Arabic({
   subsets: ["arabic"],
   weight: ["400", "500", "600", "700"],
+});
+
+// خط العناوين الرسمي - الطابع القانوني الفخم
+const amiri = Amiri({
+  subsets: ["arabic"],
+  weight: ["400", "700"],
+  variable: "--font-amiri",
 });
 
 export const metadata = {
@@ -32,7 +39,7 @@ export default function RootLayout({ children }) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className={font.className}>
+      <body className={`${font.className} ${amiri.variable}`}>
         <Header />
         <main className="mx-auto max-w-6xl px-4 py-8 min-h-[70vh]">{children}</main>
         <Footer />

@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { getMeta, getDocsLite } from "@/lib/data";
 import DocCard from "@/components/DocCard";
+import PartnerBar from "@/components/PartnerBar";
 
 function getNewDocs() {
   try {
@@ -33,10 +34,10 @@ export default function Home() {
         </div>
       )}
       {/* البطل + البحث */}
-      <section className="card relative overflow-hidden p-8 md:p-12 text-center">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(27,131,84,0.25),transparent_60%)]" />
-        <h1 className="relative text-3xl font-bold text-white md:text-4xl">
-          المكتبة القانونية السعودية <span className="text-saudi-light">الرقمية</span>
+      <section className="card card-gold relative overflow-hidden p-8 md:p-12 text-center">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,162,39,0.15),transparent_60%)]" />
+        <h1 className="hero-title relative text-3xl font-bold md:text-4xl">
+          المكتبة القانونية السعودية الرقمية
         </h1>
         <p className="relative mx-auto mt-3 max-w-2xl text-slate-400">
           {meta.total.toLocaleString("ar-SA")} وثيقة رسمية — أنظمة ولوائح ومراسيم وقرارات —
@@ -86,6 +87,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <PartnerBar />
 
       {/* أحدث الوثائق */}
       <section>

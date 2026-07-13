@@ -28,10 +28,12 @@ export default function Header() {
       <SWRegister />
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
         <Link href="/" className="flex items-center gap-3 shrink-0">
-          <Image src="/n9-logo.svg" alt="N9" width={40} height={40} priority />
+          <span className="rounded-lg bg-white p-1 shadow-md ring-1 ring-gold/40">
+            <Image src="/n9-logo.png" alt="N9" width={52} height={24} priority className="h-6 w-auto" />
+          </span>
           <div className="leading-tight">
-            <div className="font-bold" style={{ color: "var(--text)" }}>N9 LIBRARY</div>
-            <div className="text-[11px] text-saudi-light">Saudi Law Edition</div>
+            <div className="font-serif font-bold" style={{ color: "var(--text)" }}>N9 LIBRARY</div>
+            <div className="text-[11px] text-gold-c">Saudi Law Edition</div>
           </div>
         </Link>
 
