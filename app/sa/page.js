@@ -1,12 +1,37 @@
 import Link from "next/link";
+import fs from "node:fs";
+import path from "node:path";
 import { getMeta, getDocsLite } from "@/lib/data";
 import DocCard from "@/components/DocCard";
+
+function getNewDocs() {
+  try {
+    const p = path.join(process.cwd(), "data", "new-docs.json");
+    return JSON.parse(fs.readFileSync(p, "utf8"));
+  } catch { return null; }
+}
 
 export default function Home() {
   const meta = getMeta();
   const latest = getDocsLite().slice(0, 6);
+  const updates = getNewDocs();
   return (
     <div className="grid gap-10">
+      {updates?.new_count > 0 && (
+        <div className="card border-gold/50 p-4">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <span className="font-bold" style={{ color: "#b8901f" }}>
+              🔔 {updates.new_count} تشريع جديد صدر في المصدر الرسمي ولم يُضف بعد
+            </span>
+            <span className="text-xs text-faint">آخر فحص: {String(updates.checked_at).slice(0, 10)}</span>
+          </div>
+          <ul className="mt-2 grid gap-1 text-sm text-muted">
+            {updates.items.slice(0, 3).map((u) => (
+              <li key={u.title}>• {u.title} <span className="text-xs text-faint">({u.instrument})</span></li>
+            ))}
+          </ul>
+        </div>
+      )}
       {/* البطل + البحث */}
       <section className="card relative overflow-hidden p-8 md:p-12 text-center">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(27,131,84,0.25),transparent_60%)]" />

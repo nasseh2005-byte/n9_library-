@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDoc } from "@/lib/data";
+import PdfViewer from "@/components/PdfViewer";
 
 export async function generateMetadata({ params }) {
   const doc = getDoc(params.id);
-  if (!doc) return { title: "غير موجود — N9 LIBRARY" };
+  if (!doc) return { title: "غير موجود" };
   return {
-    title: `${doc.title_ar} — N9 LIBRARY`,
+    title: doc.title_ar,
     description: (doc.summary_ar || doc.title_ar).slice(0, 160),
   };
 }
@@ -69,8 +70,8 @@ export default function DocPage({ params }) {
 
         <div className="mt-6 flex flex-wrap gap-3">
           {doc.pdf_source ? (
-            <a href={doc.pdf_source} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              تحميل PDF من المصدر
+            <a href={`/api/pdf?u=${encodeURIComponent(doc.pdf_source)}`} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              تحميل / فتح PDF
             </a>
           ) : null}
           {doc.source_page ? (
@@ -80,6 +81,45 @@ export default function DocPage({ params }) {
           ) : null}
         </div>
       </div>
+
+      {doc.timeline?.items?.length > 1 ? (
+        <div className="card p-6">
+          <h2 className="mb-4 font-bold text-white">الخط الزمني للنظام وتعديلاته</h2>
+          <ol className="relative mr-3 border-r-2 border-line">
+            {doc.timeline.items.map((it) => (
+              <li key={it.id} className="mb-4 mr-4">
+                <span className={`absolute -right-[9px] mt-1.5 h-4 w-4 rounded-full border-2 ${
+                  it.current ? "border-gold bg-gold" : it.isBase ? "border-saudi bg-saudi" : "border-line bg-panel"}`} />
+                {it.current ? (
+                  <div className="rounded-lg border border-gold/40 bg-night p-3">
+                    <div className="text-xs text-gold">← الوثيقة الحالية</div>
+                    <div className="text-sm font-semibold text-slate-200">{it.t}</div>
+                    <div className="text-xs text-slate-500">{it.date}هـ {it.isBase ? "• النظام الأساسي" : "• تعديل"}</div>
+                  </div>
+                ) : (
+                  <Link href={`/doc/${it.id}`} className="block rounded-lg p-3 hover:bg-night">
+                    <div className="text-sm text-slate-300 hover:text-saudi-light">{it.t}</div>
+                    <div className="text-xs text-slate-500">{it.date || it.year}هـ {it.isBase ? "• النظام الأساسي" : "• تعديل"}</div>
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
+      ) : null}
+
+      {doc.cites?.length ? (
+        <div className="card p-6">
+          <h2 className="mb-3 font-bold text-white">🔗 يستشهد بالأنظمة</h2>
+          <ul className="grid gap-2 text-sm md:grid-cols-2">
+            {doc.cites.map((r) => (
+              <li key={r.id}>
+                <Link href={`/doc/${r.id}`} className="text-slate-300 hover:text-saudi-light">⚖️ {r.t}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
 
       {doc.related?.length ? (
         <div className="card p-6">
@@ -94,12 +134,7 @@ export default function DocPage({ params }) {
         </div>
       ) : null}
 
-      {doc.pdf_source ? (
-        <div className="card overflow-hidden">
-          <div className="border-b border-line px-4 py-2 text-sm text-slate-400">عارض الوثيقة</div>
-          <iframe src={doc.pdf_source} className="h-[75vh] w-full bg-white" title={doc.title_ar} loading="lazy" />
-        </div>
-      ) : null}
+      {doc.pdf_source ? <PdfViewer src={doc.pdf_source} title={doc.title_ar} /> : null}
 
       {doc.siblings?.length ? (
         <div className="card p-6">

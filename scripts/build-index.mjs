@@ -110,6 +110,62 @@ function relatedFor(i) {
     .map(([j]) => ({ id: ids[j], t: records[j].title_ar || "" }));
 }
 
+// ---------- جراف الاستشهادات: أي وثيقة تشير لأي نظام ----------
+// نلتقط ذكر "نظام كذا" داخل العنوان والملخص ونربطه بالنظام الأصلي
+const lawTitleIndex = [];
+records.forEach((rec, i) => {
+  const t = normalizeAr(rec.title_ar || "");
+  const m = t.match(/^(?:اللائحه التنفيذيه ل?)?نظام\s+(.+?)\s+لعام/);
+  if (m && m[1].length > 5) lawTitleIndex.push({ key: m[1].trim(), idx: i });
+});
+function citationsFor(i) {
+  const text = normalizeAr(`${records[i].title_ar || ""} ${records[i].summary_ar || ""}`);
+  const cited = [];
+  for (const { key, idx } of lawTitleIndex) {
+    if (idx === i || cited.length >= 6) continue;
+    if (text.includes(key) && !cited.some((c) => c.id === ids[idx])) {
+      cited.push({ id: ids[idx], t: records[idx].title_ar || "" });
+    }
+  }
+  return cited;
+}
+
+// ---------- الخط الزمني: ربط النظام الأم بتعديلاته ----------
+// يستخرج "اسم النظام الجذر" من عناوين التعديلات ويجمعها حول النظام الأصلي
+function rootLawName(title) {
+  let t = normalizeAr(title);
+  // يزيل بادئات التعديل ويلتقط اسم النظام بعد "من نظام/لائحة"
+  const m = t.match(/(?:من |على )?(?:نظام|لائحه|اللائحه التنفيذيه ل?نظام)\s+(.+?)(?:\s+لعام\s+\d+|\s+الصادر|$)/);
+  if (m) return `نظام ${m[1].trim()}`;
+  // عنوان يبدأ بـ"نظام كذا لعام" مباشرة = نظام أم
+  const b = t.match(/^(?:اللائحه التنفيذيه ل?)?نظام\s+(.+?)\s+لعام\s+\d+/);
+  if (b) return `نظام ${b[1].trim()}`;
+  return null;
+}
+const isAmendment = (rec) => /^(تعديل|إلغاء|إضافة|حذف)/.test(normalizeAr(rec.title_ar || "")) ||
+  String(rec.category || "").includes("تعديل");
+
+const lawGroups = new Map(); // اسم جذر -> {baseIdx, items:[idx]}
+records.forEach((rec, i) => {
+  const root = rootLawName(rec.title_ar || "");
+  if (!root) return;
+  if (!lawGroups.has(root)) lawGroups.set(root, { baseIdx: null, items: [] });
+  const g = lawGroups.get(root);
+  g.items.push(i);
+  if (!isAmendment(rec) && g.baseIdx === null) g.baseIdx = i;
+});
+// خريطة: فهرس الوثيقة -> بيانات خطها الزمني
+const timelineOf = new Map();
+for (const [root, g] of lawGroups) {
+  if (g.items.length < 2) continue; // خط زمني فقط عند وجود تعديلات
+  const chain = g.items
+    .map((idx) => ({ idx, date: records[idx].hijri_date || records[idx].hijri_year || "" }))
+    .sort((a, b) => String(a.date).localeCompare(String(b.date)));
+  for (const { idx } of chain) {
+    timelineOf.set(idx, { root, chainIdx: chain.map((c) => c.idx) });
+  }
+}
+
 // ---------- التمريرة الثانية: الكتابة ----------
 const lite = [];
 records.forEach((rec, i) => {
@@ -142,6 +198,14 @@ records.forEach((rec, i) => {
     gazette_issue: rec.gazette_issue || null,
     siblings: siblingIds,
     related: relatedFor(i),
+    cites: citationsFor(i),
+    timeline: timelineOf.has(i) ? {
+      root: timelineOf.get(i).root,
+      items: timelineOf.get(i).chainIdx.map((j) => ({
+        id: ids[j], t: records[j].title_ar || "", date: records[j].hijri_date || "",
+        year: records[j].hijri_year || "", isBase: !isAmendment(records[j]), current: j === i,
+      })),
+    } : null,
     tags,
     source: rec.source || 1,
     source_name: rec.source_name || "",

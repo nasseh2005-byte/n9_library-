@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { NextResponse } from "next/server";
 import { parseMemberToken, MEMBER_COOKIE, TERMS_COOKIE, getUpload, canSee, FILES_DIR } from "@/lib/members";
+import { audit } from "@/lib/audit";
 
 const MIME = { ".pdf": "application/pdf", ".png": "image/png", ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg", ".docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
@@ -15,6 +16,7 @@ export async function GET(req, { params }) {
   const member = parseMemberToken(req.cookies.get(MEMBER_COOKIE)?.value);
   const termsOk = req.cookies.get(TERMS_COOKIE)?.value === "1";
   if (!canSee(rec, member, termsOk)) return NextResponse.json({ error: "غير مصرح" }, { status: 403 });
+  if (rec.visibility !== "public") audit(member, "فتح ملف خاص", rec.title);
 
   const safe = path.basename(rec.file);
   const p = path.join(FILES_DIR, safe);

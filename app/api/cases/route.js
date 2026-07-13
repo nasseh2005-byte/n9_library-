@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { parseMemberToken, MEMBER_COOKIE } from "@/lib/members";
 import { getCase, saveCase, CASE_TYPES } from "@/lib/cases";
+import { audit } from "@/lib/audit";
 
 function member(req) { return parseMemberToken(req.cookies.get(MEMBER_COOKIE)?.value); }
 
@@ -24,6 +25,7 @@ export async function POST(req) {
     visibility: ["public", "office", "private"].includes(visibility) ? visibility : "office",
     owner: m.user, office: m.office, created_at: new Date().toISOString(),
   });
+  audit(m, "فتح ملف حالة", rec.title);
   return NextResponse.json({ ok: true, id: rec.id });
 }
 

@@ -1,0 +1,14 @@
+{
+  "name": "N9 LIBRARY — المكتبة القانونية السعودية",
+  "short_name": "N9 LIBRARY",
+  "description": "المكتبة القانونية السعودية الرقمية — بحث ذكي ومساعد قانوني",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1220",
+  "theme_color": "#0B1220",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    { "src": "/n9-logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

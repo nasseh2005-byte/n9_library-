@@ -3,6 +3,7 @@ import path from "node:path";
 import { NextResponse } from "next/server";
 import { parseMemberToken, MEMBER_COOKIE, saveUpload, FILES_DIR, ensureDirs } from "@/lib/members";
 import { analyzeDoc } from "@/lib/tags.mjs";
+import { audit } from "@/lib/audit";
 
 const OK_EXT = [".pdf", ".png", ".jpg", ".jpeg", ".docx", ".xlsx", ".md", ".txt"];
 
@@ -43,6 +44,7 @@ export async function POST(req) {
       file, external_url: external_url || null,
       added_at: new Date().toISOString(),
     });
+    audit(member, "رفع مرفق", `${title} [${visibility}]`);
     return NextResponse.json({ ok: true, id, tags, category: auto.category, type: auto.type });
   } catch {
     return NextResponse.json({ error: "الحفظ متاح محليًا — على Vercel سيُستخدم تخزين سحابي" }, { status: 500 });

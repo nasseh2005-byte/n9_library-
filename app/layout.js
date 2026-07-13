@@ -9,14 +9,29 @@ const font = IBM_Plex_Sans_Arabic({
 });
 
 export const metadata = {
-  title: "N9 LIBRARY — المكتبة القانونية السعودية",
+  metadataBase: new URL(process.env.SITE_URL || "https://n9library.vercel.app"),
+  title: {
+    default: "N9 LIBRARY — المكتبة القانونية السعودية",
+    template: "%s — N9 LIBRARY",
+  },
   description:
-    "أرشيف الأنظمة واللوائح والتشريعات السعودية — بحث ذكي وتصنيفات وتاغات. المصدر: المركز الوطني للوثائق والمحفوظات.",
+    "أرشيف الأنظمة واللوائح والتشريعات السعودية — بحث ذكي وتصنيفات وتاغات ومساعد قانوني مدموج. المصدر: المركز الوطني للوثائق والمحفوظات.",
+  manifest: "/manifest.json",
+  applicationName: "N9 LIBRARY",
+  openGraph: { title: "N9 LIBRARY", description: "المكتبة القانونية السعودية الرقمية", type: "website" },
 };
+
+export const viewport = { themeColor: "#0B1220" };
+
+// يضبط الثيم قبل رسم الصفحة لمنع الوميض
+const themeScript = `(function(){try{var t=localStorage.getItem('n9-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`;
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ar" dir="rtl">
+    <html lang="ar" dir="rtl" data-theme="dark">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className={font.className}>
         <Header />
         <main className="mx-auto max-w-6xl px-4 py-8 min-h-[70vh]">{children}</main>
