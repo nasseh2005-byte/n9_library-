@@ -71,8 +71,12 @@ fs.writeFileSync(PROG, JSON.stringify(done), "utf8");
 fs.writeFileSync(OUT + ".partial", JSON.stringify(records), "utf8");
 
 const processTerm = (t) => { const n = normalizeAr(t.toLowerCase()); return n.length > 1 ? n : null; };
+// إزالة التكرار: النسخة المطبوعة والأصل لنفس الوثيقة تنتجان نفس معرف الصفحة
+const uniq = new Map();
+for (const r of records) if (!uniq.has(r.id)) uniq.set(r.id, r);
+const finalRecords = [...uniq.values()];
 const mini = new MiniSearch({ fields: ["text"], storeFields: ["docId", "title", "p", "snippet"], idField: "id", processTerm });
-mini.addAll(records);
+mini.addAll(finalRecords);
 fs.writeFileSync(OUT, JSON.stringify(mini.toJSON()), "utf8");
-console.log(`اكتمل: ${records.length} صفحة مفهرسة من ${extracted} وثيقة | ممسوح ${noText} (يحتاج OCR لاحقا)`);
+console.log(`اكتمل: ${finalRecords.length} صفحة مفهرسة (بعد إزالة التكرار من ${records.length}) | ممسوح ${noText} (يحتاج OCR لاحقا)`);
 console.log("الفهرس:", OUT, (fs.statSync(OUT).size / 1048576).toFixed(1), "MB");
