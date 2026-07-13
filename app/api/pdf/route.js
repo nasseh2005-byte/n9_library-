@@ -35,7 +35,7 @@ function errorPage(sourceUrl) {
 <style>body{font-family:Arial;background:#f6f8fb;color:#1a2434;display:grid;place-items:center;height:95vh;margin:0}
 .box{text-align:center;padding:2rem}.b{display:inline-block;margin:.4rem;padding:.6rem 1.4rem;border-radius:.6rem;
 background:#1b8354;color:#fff;text-decoration:none;font-weight:bold}.g{background:#fff;color:#1a2434;border:1px solid #dbe3ee}</style>
-</head><body><div class="box"><div style="font-size:2.5rem">📄</div>
+</head><body><div class="box">
 <h3>خادم المصدر بطيء أو مشغول حاليًا</h3><p>الملف موجود — جرّب مرة أخرى خلال لحظات</p>
 <a class="b" href="javascript:location.reload()">إعادة المحاولة</a>
 <a class="b g" href="${sourceUrl}" target="_blank" rel="noopener">فتح من المصدر مباشرة</a>

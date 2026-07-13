@@ -31,7 +31,7 @@ export default function CasePage({ params }) {
           return (
             <div className={`mt-3 w-fit rounded-lg px-3 py-1.5 text-sm font-bold ${
               days < 0 ? "bg-red-500/15 text-red-400" : days <= 5 ? "bg-gold/15 text-gold" : "bg-saudi/15 text-saudi-light"}`}>
-              ⏰ المهلة النظامية: {c.deadline} — {days < 0 ? `انقضت منذ ${-days} يوم!` : `باقٍ ${days} يوم`}
+              المهلة النظامية: {c.deadline} — {days < 0 ? `انقضت منذ ${-days} يوم!` : `باقٍ ${days} يوم`}
             </div>
           );
         })()}
@@ -56,11 +56,11 @@ export default function CasePage({ params }) {
           <ul className="grid gap-2 text-sm">
             {c.attachments.map((a) => (
               <li key={a.id}>
-                📎 <a href={`/api/file/${a.id}`} target="_blank" className="text-saudi-light hover:underline">{a.title}</a>
+                <a href={`/api/file/${a.id}`} target="_blank" className="text-gold-c hover:underline">{a.title}</a>
               </li>
             ))}
             {c.links.map((l, i) => (
-              <li key={i}>🔗 <a href={l.url} target="_blank" rel="noopener noreferrer" className="text-gold hover:underline break-all">{l.url}</a></li>
+              <li key={i}><a href={l.url} target="_blank" rel="noopener noreferrer" className="text-gold-c hover:underline break-all">{l.url}</a></li>
             ))}
           </ul>
         </div>

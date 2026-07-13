@@ -63,7 +63,7 @@ export default function VaultPage({ searchParams }) {
             <div key={r.id} className="card p-4">
               <div className="flex items-start justify-between gap-2">
                 <h3 className="font-semibold leading-7 text-slate-100">
-                  {r.kind === "case" ? "📁 " : ""}{r.title}
+                  {r.title}
                 </h3>
                 <span className={`shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold ${cls}`}>{label}</span>
               </div>

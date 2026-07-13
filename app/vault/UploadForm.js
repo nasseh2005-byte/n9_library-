@@ -36,24 +36,25 @@ export default function UploadForm() {
 
   return (
     <div className="card p-5">
-      <button onClick={() => setOpen(!open)} className="flex w-full items-center justify-between font-bold text-white">
-        <span>+ رفع مرفق جديد (تحليل وتصنيف تلقائي)</span>
-        <span className="text-slate-500">{open ? "▲" : "▼"}</span>
+      <button onClick={() => setOpen(!open)} className="flex w-full items-center justify-between font-bold">
+        <span>رفع حكم أو مرفق جديد (تحليل وتصنيف تلقائي)</span>
+        <span className="text-faint">{open ? "▲" : "▼"}</span>
       </button>
       {open && (
         <form onSubmit={submit} className="mt-4 grid gap-3">
-          <input name="title" className="input" placeholder="عنوان المرفق — النظام يفهم منه التصنيف والتاغات"
+          <input name="title" className="input" placeholder="العنوان — مثال: حكم استئناف في دعوى مطالبة مالية رقم…"
             value={form.title}
             onChange={(e) => { setForm({ ...form, title: e.target.value }); analyze(e.target.value, form.desc); }}
             required />
-          <textarea name="desc" className="input min-h-20" placeholder="وصف اختياري — يحسن دقة التحليل"
+          <textarea name="desc" className="input min-h-24"
+            placeholder="وصف الحكم/المرفق: ملخص الوقائع، المبدأ القضائي، ما يُستفاد منه كسابقة — يحسّن التحليل والبحث"
             value={form.desc}
             onChange={(e) => { setForm({ ...form, desc: e.target.value }); analyze(form.title, e.target.value); }} />
           {analysis && (
-            <div className="rounded-lg border border-saudi/30 bg-night p-3 text-sm">
-              <div className="text-xs font-semibold text-gold">فهم النظام للمرفق:</div>
-              <div className="mt-1 text-slate-300">
-                التصنيف: <b className="text-saudi-light">{analysis.category}</b> — النوع: <b className="text-saudi-light">{analysis.type}</b>
+            <div className="rounded-lg border border-gold/30 surface-2 p-3 text-sm">
+              <div className="text-xs font-semibold text-gold-c">فهم النظام للمرفق:</div>
+              <div className="mt-1 text-muted">
+                التصنيف: <b className="text-gold-c">{analysis.category}</b> — النوع: <b className="text-gold-c">{analysis.type}</b>
               </div>
               <div className="mt-2 flex flex-wrap gap-1">
                 {analysis.tags.slice(0, 12).map((t) => <span key={t} className="tag-pill text-[10px]">{t}</span>)}

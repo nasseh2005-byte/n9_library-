@@ -22,7 +22,7 @@ export default function Home() {
         <div className="card border-gold/50 p-4">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <span className="font-bold" style={{ color: "#b8901f" }}>
-              🔔 {updates.new_count} تشريع جديد صدر في المصدر الرسمي ولم يُضف بعد
+              {updates.new_count} تشريع جديد صدر في المصدر الرسمي ولم يُضف بعد
             </span>
             <span className="text-xs text-faint">آخر فحص: {String(updates.checked_at).slice(0, 10)}</span>
           </div>

@@ -59,7 +59,7 @@ export default function CaseTools({ caseId, status }) {
         {hits.map((h) => (
           <button key={h.id} onClick={() => { patch({ action: "attach", upload_id: h.id, upload_title: h.title }); setHits([]); setQ(""); }}
             className="rounded-lg border border-line p-2 text-right text-sm text-slate-300 hover:border-saudi">
-            📎 {h.title} <span className="text-xs text-slate-500">({h.category})</span>
+            {h.title} <span className="text-xs text-faint">({h.category})</span>
           </button>
         ))}
       </div>
@@ -73,7 +73,7 @@ export default function CaseTools({ caseId, status }) {
 
       <div className="grid gap-2 border-t border-line pt-4">
         <div className="flex gap-2">
-          <button className="btn-primary" onClick={genMemo}>📝 توليد مذكرة من الملف</button>
+          <button className="btn-primary" onClick={genMemo}>توليد مذكرة من الملف</button>
           {memo && <button className="btn-ghost" onClick={downloadMemo}>تنزيل Word</button>}
         </div>
         {memo && <textarea className="input min-h-72 text-sm leading-7" value={memo} onChange={(e) => setMemo(e.target.value)} />}

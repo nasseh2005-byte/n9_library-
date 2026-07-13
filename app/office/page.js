@@ -6,8 +6,6 @@ import { officeStats } from "@/lib/office";
 export const metadata = { title: "لوحة المكتب" };
 export const dynamic = "force-dynamic";
 
-const ACTION_ICON = { "رفع مرفق": "📎", "فتح ملف حالة": "📁", "فتح ملف خاص": "🔓", "دخول": "🔑" };
-
 export default function OfficePage() {
   const member = getMember();
   if (!member) redirect("/login");
@@ -34,7 +32,7 @@ export default function OfficePage() {
 
       {s.soon.length > 0 && (
         <div className="card border-gold/40 p-5">
-          <h2 className="mb-2 font-bold" style={{ color: "#b8901f" }}>⏰ مهل نظامية قريبة الانقضاء</h2>
+          <h2 className="mb-2 font-bold text-gold-c">مهل نظامية قريبة الانقضاء</h2>
           <ul className="grid gap-2 text-sm">
             {s.soon.map((c) => (
               <li key={c.id} className="flex justify-between">
@@ -81,7 +79,7 @@ export default function OfficePage() {
           {s.audit.map((a, i) => (
             <li key={i} className="flex items-center justify-between border-b py-1.5" style={{ borderColor: "var(--line)" }}>
               <span className="text-muted">
-                {ACTION_ICON[a.action] || "•"} <b style={{ color: "var(--text)" }} dir="ltr">{a.user}</b> — {a.action}: {a.target}
+                <b style={{ color: "var(--text)" }} dir="ltr">{a.user}</b> — {a.action}: {a.target}
               </span>
               <span className="shrink-0 text-xs text-faint">{String(a.at).slice(0, 16).replace("T", " ")}</span>
             </li>

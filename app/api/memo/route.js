@@ -28,7 +28,7 @@ export async function GET(req) {
   // السند النظامي: بحث الأرشيف بأنواع الحالة + عنوانها
   const legal = getIdx()
     .search(`${c.case_types.join(" ")} ${c.title}`, { prefix: true, fuzzy: 0.2, boost: { title: 3 } })
-    .filter((r) => r.valid?.includes("سارية"))
+    .filter((r) => r.valid === 1 || String(r.valid).includes("سارية"))
     .slice(0, 4);
 
   const today = new Date().toLocaleDateString("ar-SA");

@@ -110,11 +110,11 @@ export default function DocPage({ params }) {
 
       {doc.cites?.length ? (
         <div className="card p-6">
-          <h2 className="mb-3 font-bold text-white">🔗 يستشهد بالأنظمة</h2>
+          <h2 className="mb-3 font-bold" style={{ color: "var(--text)" }}>يستشهد بالأنظمة</h2>
           <ul className="grid gap-2 text-sm md:grid-cols-2">
             {doc.cites.map((r) => (
               <li key={r.id}>
-                <Link href={`/doc/${r.id}`} className="text-slate-300 hover:text-saudi-light">⚖️ {r.t}</Link>
+                <Link href={`/doc/${r.id}`} className="text-muted hover:text-gold-c">{r.t}</Link>
               </li>
             ))}
           </ul>

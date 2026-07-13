@@ -2,24 +2,25 @@ import Link from "next/link";
 import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
 import SWRegister from "./SWRegister";
+import Icon from "./Icon";
 
-// روابط أساسية (تظهر دائمًا على الشاشات الكبيرة)
 const primary = [
-  { href: "/library", label: "المكتبة" },
-  { href: "/search", label: "البحث" },
-  { href: "/assistant", label: "المساعد" },
-  { href: "/stats", label: "الإحصائيات" },
+  { href: "/library", label: "المكتبة", icon: "book" },
+  { href: "/find", label: "البحث الشامل", icon: "search" },
+  { href: "/assistant", label: "المساعد", icon: "sparkle" },
+  { href: "/stats", label: "الإحصائيات", icon: "chart" },
 ];
-// روابط الأعضاء والثانوية
 const secondary = [
-  { href: "/vault", label: "الخزنة" },
-  { href: "/cases", label: "الحالات" },
-  { href: "/office", label: "لوحة المكتب" },
-  { href: "/blog", label: "المدونة" },
-  { href: "/n9-law-system", label: "N9 LAW SYSTEM" },
-  { href: "/about", label: "حول" },
+  { href: "/vault", label: "الخزنة الخاصة", icon: "folder" },
+  { href: "/cases", label: "ملفات الحالات", icon: "file" },
+  { href: "/replies", label: "الردود على القضاة", icon: "reply" },
+  { href: "/office", label: "لوحة المكتب", icon: "building" },
+  { href: "/developer", label: "لوحة المطوّر", icon: "shield" },
+  { href: "/blog", label: "المدونة", icon: "edit" },
+  { href: "/n9-law-system", label: "N9 LAW SYSTEM", icon: "scale" },
+  { href: "/about", label: "حول", icon: "home" },
 ];
-const all = [{ href: "/sa", label: "🇸🇦 البوابة السعودية" }, ...primary, ...secondary];
+const all = [{ href: "/sa", label: "البوابة السعودية", icon: "scale" }, ...primary, ...secondary];
 
 export default function Header() {
   return (
@@ -40,16 +41,17 @@ export default function Header() {
         <nav className="hidden items-center gap-0.5 lg:flex">
           {primary.map((n) => (
             <Link key={n.href} href={n.href}
-              className="rounded-lg px-3 py-2 text-sm text-muted hover:text-saudi-light transition-colors">
-              {n.label}
+              className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-muted hover:text-gold-c transition-colors">
+              <Icon name={n.icon} size={15} /> {n.label}
             </Link>
           ))}
-          {/* قائمة المزيد */}
           <details className="relative">
-            <summary className="cursor-pointer list-none rounded-lg px-3 py-2 text-sm text-muted hover:text-saudi-light">المزيد ▾</summary>
-            <div className="card absolute left-0 top-full z-50 mt-2 grid w-52 gap-0.5 p-2 shadow-2xl">
+            <summary className="cursor-pointer list-none rounded-lg px-3 py-2 text-sm text-muted hover:text-gold-c">المزيد ▾</summary>
+            <div className="card absolute left-0 top-full z-50 mt-2 grid w-56 gap-0.5 p-2 shadow-2xl">
               {secondary.map((n) => (
-                <Link key={n.href} href={n.href} className="rounded-lg px-3 py-2 text-sm text-muted hover:surface-2 hover:text-saudi-light">{n.label}</Link>
+                <Link key={n.href} href={n.href} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted hover:surface-2 hover:text-gold-c">
+                  <Icon name={n.icon} size={15} /> {n.label}
+                </Link>
               ))}
             </div>
           </details>
@@ -58,21 +60,20 @@ export default function Header() {
         <div className="hidden items-center gap-2 lg:flex">
           <ThemeToggle />
           <Link href="/login" className="btn-ghost text-xs">دخول الأعضاء</Link>
-          <Link href="/admin" className="btn-ghost text-xs">الإدارة</Link>
         </div>
 
-        {/* الجوال */}
         <div className="flex items-center gap-2 lg:hidden">
           <ThemeToggle />
           <details className="relative">
-            <summary className="btn-ghost cursor-pointer list-none text-sm">☰</summary>
-            <div className="card absolute left-0 top-full z-50 mt-2 grid w-56 gap-0.5 p-2 shadow-2xl">
+            <summary className="btn-ghost cursor-pointer list-none text-sm">القائمة</summary>
+            <div className="card absolute left-0 top-full z-50 mt-2 grid w-60 gap-0.5 p-2 shadow-2xl">
               {all.map((n) => (
-                <Link key={n.href} href={n.href} className="rounded-lg px-3 py-2 text-sm text-muted hover:surface-2 hover:text-saudi-light">{n.label}</Link>
+                <Link key={n.href} href={n.href} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-muted hover:surface-2 hover:text-gold-c">
+                  <Icon name={n.icon} size={15} /> {n.label}
+                </Link>
               ))}
               <div className="my-1 border-t" style={{ borderColor: "var(--line)" }} />
-              <Link href="/login" className="rounded-lg px-3 py-2 text-sm text-saudi-light">دخول الأعضاء</Link>
-              <Link href="/admin" className="rounded-lg px-3 py-2 text-sm text-faint">الإدارة</Link>
+              <Link href="/login" className="rounded-lg px-3 py-2 text-sm text-gold-c">دخول الأعضاء</Link>
             </div>
           </details>
         </div>

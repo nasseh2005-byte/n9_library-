@@ -30,7 +30,7 @@ export default function Footer() {
           </div>
           <a href="https://n9-apps-script-edition.vercel.app/" target="_blank" rel="noopener noreferrer"
             className="mt-4 block text-sm text-gold-c hover:underline">
-            ⚖️ N9 LAW SYSTEM — نظام إدارة القضايا ↗
+            N9 LAW SYSTEM — نظام إدارة القضايا ↗
           </a>
         </div>
 

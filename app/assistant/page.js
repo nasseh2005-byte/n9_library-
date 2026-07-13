@@ -41,7 +41,7 @@ export default function AssistantPage() {
 
       {d?.pageHits?.length > 0 && (
         <div className="card p-5">
-          <h2 className="mb-2 text-sm font-bold text-gold">📄 نتائج بمستوى الصفحة</h2>
+          <h2 className="mb-2 text-sm font-bold text-gold-c">نتائج بمستوى الصفحة</h2>
           {d.pageHits.map((p, i) => (
             <Link key={i} href={`/doc/${p.docId}`} className="block border-b border-line py-2 text-sm hover:text-saudi-light">
               {p.title} — <b className="text-gold">صفحة {p.page}</b>
@@ -52,7 +52,7 @@ export default function AssistantPage() {
       )}
       {d?.laws?.length > 0 && (
         <div className="card p-5">
-          <h2 className="mb-2 text-sm font-bold text-white">⚖️ من الأرشيف الرسمي</h2>
+          <h2 className="mb-2 text-sm font-bold" style={{ color: "var(--text)" }}>من الأرشيف الرسمي</h2>
           {d.laws.map((l) => (
             <Link key={l.id} href={`/doc/${l.id}`} className="block border-b border-line py-2 text-sm text-slate-300 hover:text-saudi-light">
               {l.title} <span className="text-xs text-slate-500">({l.number} — {l.year}هـ — {l.valid})</span>
@@ -62,7 +62,7 @@ export default function AssistantPage() {
       )}
       {d?.office?.length > 0 && (
         <div className="card p-5">
-          <h2 className="mb-2 text-sm font-bold text-white">🔒 من خزنة مكتبك</h2>
+          <h2 className="mb-2 text-sm font-bold" style={{ color: "var(--text)" }}>من خزنة مكتبك</h2>
           {d.office.map((o) => (
             <Link key={o.id} href={o.kind === "case" ? `/cases/${o.id.replace(/^case-/, "")}` : "/vault"}
               className="block border-b border-line py-2 text-sm text-slate-300 hover:text-saudi-light">
