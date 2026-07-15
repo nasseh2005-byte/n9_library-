@@ -6,12 +6,13 @@ export default function AssistantPage() {
   const [q, setQ] = useState("");
   const [d, setD] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [mode, setMode] = useState("broad");
 
   async function ask(e) {
     e.preventDefault();
     if (!q.trim()) return;
     setLoading(true);
-    const r = await fetch(`/api/assistant?q=${encodeURIComponent(q)}`);
+    const r = await fetch(`/api/assistant?q=${encodeURIComponent(q)}&mode=${mode}`);
     setD(await r.json());
     setLoading(false);
   }
@@ -29,15 +30,19 @@ export default function AssistantPage() {
           placeholder="اسأل: ما عقوبة تقسيم المبنى لوحدات مخالفة؟ متى يسقط رسم الأرض البيضاء؟" autoFocus />
         <button className="btn-primary shrink-0" disabled={loading}>{loading ? "يفكر…" : "اسأل"}</button>
       </form>
+      <div className="flex justify-center gap-2"><button onClick={() => setMode("broad")} className={mode === "broad" ? "btn-primary" : "btn-ghost"}>بحث شامل وتحمل أخطاء</button><button onClick={() => setMode("exact")} className={mode === "exact" ? "btn-primary" : "btn-ghost"}>بحث دقيق</button></div>
 
       {d?.answer && (
         <div className="card border-saudi/40 p-6">
           <div className="text-xs font-semibold text-gold">الجواب المستخلص</div>
           <p className="mt-2 leading-9 text-slate-200">{d.answer.text}…</p>
           <div className="mt-3 text-xs text-saudi-light">المصدر: {d.answer.source}</div>
+          {d.answer.keyPoints?.length ? <ul className="mt-4 list-disc space-y-2 pr-5 text-sm text-muted">{d.answer.keyPoints.map((point, index) => <li key={index}>{point}</li>)}</ul> : null}
+          <div className="mt-3 text-xs text-faint">درجة الثقة: {d.answer.confidence}</div>
         </div>
       )}
       {d && !d.answer && <div className="card p-8 text-center text-slate-400">لم أجد جوابًا — جرّب صياغة أخرى</div>}
+      {d && !d.answer ? <a href={d.webPdfUrl} target="_blank" rel="noopener noreferrer" className="btn-primary mx-auto">ابحث عن ملفات PDF حكومية مرتبطة</a> : null}
 
       {d?.pageHits?.length > 0 && (
         <div className="card p-5">

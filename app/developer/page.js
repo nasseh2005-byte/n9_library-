@@ -30,6 +30,7 @@ export default function DeveloperPage() {
         <h1 className="font-serif text-2xl font-bold">لوحة المطوّر</h1>
       </div>
       <DevConsole />
+      <a href="/developer/suggestions" className="card flex items-center justify-between p-5 hover:border-gold"><span className="font-bold">اقتراحات الزوار</span><span className="text-gold-c">عرض الاقتراحات ←</span></a>
       <UploadForm defaultOpen developerMode />
 
       <div className="card p-6">

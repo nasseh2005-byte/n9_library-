@@ -10,6 +10,11 @@ const securityHeaders = [
 
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    outputFileTracingIncludes: {
+      "/api/generated-pdf": ["./node_modules/@embedpdf/fonts-arabic/fonts/*.ttf"],
+    },
+  },
   poweredByHeader: false, // إخفاء ترويسة X-Powered-By
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];

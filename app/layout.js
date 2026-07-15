@@ -31,11 +31,11 @@ export const metadata = {
 export const viewport = { themeColor: "#F7F9F7" };
 
 // يضبط الثيم قبل رسم الصفحة لمنع الوميض
-const themeScript = `(function(){try{var t=localStorage.getItem('n9-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`;
+const themeScript = `(function(){try{var r=document.documentElement;r.setAttribute('data-theme',localStorage.getItem('n9-theme')||'light');r.setAttribute('data-palette',localStorage.getItem('n9-palette')||'n9');r.setAttribute('data-font',localStorage.getItem('n9-font')||'modern');}catch(e){}})();`;
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ar" dir="rtl" data-theme="light">
+    <html lang="ar" dir="rtl" data-theme="light" data-palette="n9" data-font="modern">
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

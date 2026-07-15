@@ -12,6 +12,12 @@ const ALLOWED_HOSTS = [
   "drive.google.com",
   "drive.usercontent.google.com",
   "googleusercontent.com",
+  "mt.gov.sa",
+  "moe.gov.sa",
+  "gaca.gov.sa",
+  "rega.gov.sa",
+  "tga.gov.sa",
+  "mashortich.com",
 ];
 
 function isAllowed(value) {
@@ -66,11 +72,15 @@ function fetchBuffer(value, range, redirects = 0) {
         }
         chunks.push(chunk);
       });
-      res.on("end", () => resolve({
-        buffer: Buffer.concat(chunks),
+      res.on("end", () => {
+        const buffer = Buffer.concat(chunks);
+        if (buffer.subarray(0, 4).toString("ascii") !== "%PDF") return reject(new Error("source is not a PDF"));
+        resolve({
+        buffer,
         status: res.statusCode,
         headers: res.headers,
-      }));
+      });
+      });
     }).on("error", reject);
   });
 }
@@ -88,7 +98,7 @@ export async function GET(req) {
     const fileName = safeFileName(params.get("filename"));
     const disposition = `${download ? "attachment" : "inline"}; filename="document.pdf"; filename*=UTF-8''${encodeURIComponent(fileName.endsWith(".pdf") ? fileName : `${fileName}.pdf`)}`;
     const headers = {
-      "Content-Type": result.headers["content-type"] || "application/pdf",
+      "Content-Type": "application/pdf",
       "Content-Disposition": disposition,
       "Content-Length": String(result.buffer.length),
       "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400",

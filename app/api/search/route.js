@@ -42,19 +42,19 @@ export async function GET(req) {
   const q = (sp.get("q") || "").trim();
   const cat = sp.get("cat") || "";
   const valid = sp.get("valid") || "";
+  const mode = sp.get("mode") === "exact" ? "exact" : "broad";
   if (!q) return NextResponse.json({ q, results: [] });
 
   // محاولة دقيقة (كل الكلمات) ثم موسعة (أي كلمة)
-  let relaxed = false;
-  let results = runSearch(q, { prefix: true, fuzzy: 0.15, boost: { title: 3, tags: 2 }, combineWith: "AND" });
-  if (results.length === 0) {
-    relaxed = true;
-    results = runSearch(q, { prefix: true, fuzzy: 0.2, boost: { title: 3, tags: 2 } });
-  }
+  let relaxed = mode === "broad";
+  let results = mode === "exact"
+    ? runSearch(q, { prefix: false, fuzzy: 0, boost: { title: 4, tags: 2 }, combineWith: "AND" })
+    : runSearch(q, { prefix: true, fuzzy: 0.25, boost: { title: 3, tags: 2 }, combineWith: "OR" });
   if (cat) results = results.filter((r) => r.category === cat);
   if (valid === "1") results = results.filter((r) => r.valid === 1);
   if (valid === "0") results = results.filter((r) => r.valid !== 1);
 
   const total = results.length;
-  return NextResponse.json({ q, total, relaxed, results: results.slice(0, 30) });
+  const webPdfUrl = `https://www.google.com/search?q=${encodeURIComponent(`${q} filetype:pdf site:gov.sa`)}`;
+  return NextResponse.json({ q, mode, total, relaxed, results: results.slice(0, 30), webPdfUrl });
 }

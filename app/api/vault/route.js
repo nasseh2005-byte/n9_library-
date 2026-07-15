@@ -27,6 +27,8 @@ export async function POST(req) {
   if (!title) return NextResponse.json({ error: "العنوان مطلوب" }, { status: 400 });
 
   const auto = analyzeDoc(title, desc);
+  const customCategory = String(form.get("category") || "").trim().slice(0, 100);
+  const customType = String(form.get("type") || "").trim().slice(0, 100);
   const tags = [...new Set([...userTags, ...auto.tags])].slice(0, 20);
   const id = `up-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`;
 
@@ -59,7 +61,7 @@ export async function POST(req) {
   try {
     const record = {
       id, title, desc, tags,
-      category: auto.category, type: auto.type,
+      category: customCategory || auto.category, type: customType || auto.type,
       visibility, owner: member.user, office: member.office,
       file: typeof file === "string" ? file : null,
       file_url: typeof file === "object" ? file.url : null,
@@ -79,7 +81,7 @@ export async function POST(req) {
       saveUpload(record);
     }
     audit(member, "رفع مرفق", `${title} [${visibility}]`);
-    return NextResponse.json({ ok: true, id, tags, category: auto.category, type: auto.type, file_url: record.file_url });
+    return NextResponse.json({ ok: true, id, tags, category: record.category, type: record.type, file_url: record.file_url });
   } catch (error) {
     return NextResponse.json({ error: error.message || "تعذر الحفظ في Vercel Blob" }, { status: 500 });
   }

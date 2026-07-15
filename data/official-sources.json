@@ -43,5 +43,50 @@
     "url": "https://drive.google.com/drive/folders/1bkHRt7ikKgEQhG7Em3I8uABEqsnCvVir?usp=drive_link",
     "scope": "168 ملف PDF مفهرس",
     "official": false
+  },
+  {
+    "id": "boe-laws", "name": "هيئة الخبراء بمجلس الوزراء", "short_name": "بوابة الأنظمة السعودية — هيئة الخبراء",
+    "description": "النصوص الرسمية للأنظمة واللوائح السعودية. تنشئ المكتبة نسخة PDF قابلة للحفظ من النص الرسمي مع إبقاء رابط الأصل.",
+    "url": "https://laws.boe.gov.sa/BoeLaws/Laws/Search", "scope": "529 نصًا رسميًا مفهرسًا", "official": true
+  },
+  {
+    "id": "tourism", "name": "وزارة السياحة", "short_name": "أنظمة ولوائح السياحة",
+    "description": "ملفات PDF المباشرة للأنظمة واللوائح والأدلة والمخالفات المنظمة للقطاع السياحي.",
+    "url": "https://mt.gov.sa/policies-regulations/regulations", "scope": "21 ملف PDF مباشر", "official": true
+  },
+  {
+    "id": "education", "name": "وزارة التعليم", "short_name": "أنظمة ولوائح وسياسات التعليم",
+    "description": "الأنظمة واللوائح والأدلة والسياسات التعليمية المنشورة بصيغة PDF مباشرة.",
+    "url": "https://www.moe.gov.sa/ar/aboutus/aboutministry/Pages/rpr.aspx", "scope": "142 ملف PDF مباشر", "official": true
+  },
+  {
+    "id": "gaca", "name": "الهيئة العامة للطيران المدني", "short_name": "أنظمة ولوائح الطيران المدني",
+    "description": "أنظمة الطيران والسلامة والنقل الجوي واللوائح الاقتصادية المنشورة بملفات PDF مباشرة.",
+    "url": "https://gaca.gov.sa/ar/Rules-and-Regulations-Category", "scope": "فهرس PDF متعدد الأقسام", "official": true
+  },
+  {
+    "id": "rega", "name": "الهيئة العامة للعقار", "short_name": "أنظمة ولوائح وأدلة القطاع العقاري",
+    "description": "الأنظمة واللوائح والضوابط والأدلة العقارية؛ الملفات المباشرة أو نسخة PDF من النص الرسمي.",
+    "url": "https://rega.gov.sa/الأنظمة-والقرارات/الأنظمة-واللوائح-والأدلة/", "scope": "35 وثيقة مفهرسة", "official": true
+  },
+  {
+    "id": "tga", "name": "الهيئة العامة للنقل", "short_name": "لوائح وأنظمة النقل",
+    "description": "النصوص التنظيمية المنشورة في موقع الهيئة مع نسخة PDF مولّدة من النص الرسمي عند عدم وجود تنزيل مباشر.",
+    "url": "https://www.tga.gov.sa/ar/Regulations/Regulation/6106", "scope": "نص رسمي قابل للتنزيل PDF", "official": true
+  },
+  {
+    "id": "health", "name": "وزارة الصحة", "short_name": "أنظمة ولوائح وزارة الصحة",
+    "description": "صفحة مرجعية رسمية؛ الروابط غير المباشرة لا تتحول إلى بطاقات حتى يتوفر ملف PDF أو نص رسمي قابل للتحويل.",
+    "url": "https://www.moh.gov.sa/ministry/rules/pages/default.aspx", "scope": "مصدر رسمي مرجعي", "official": true
+  },
+  {
+    "id": "justice-laws", "name": "وزارة العدل", "short_name": "التشريعات والأنظمة العدلية",
+    "description": "مصدر رسمي موثق؛ لا تضيف المكتبة روابط غير قابلة للتحقق أو صفحات بلا ملف.",
+    "url": "https://laws.moj.gov.sa/ar/legislations-regulations", "scope": "مصدر رسمي مرجعي", "official": true
+  },
+  {
+    "id": "mashortich", "name": "مجموعة الأحكام القضائية الصادرة عن وزارة العدل", "short_name": "مجموعات الأحكام القضائية",
+    "description": "نسخ PDF لمجموعات الأحكام القضائية المجمعة مع بيان المصدر، ويعامل الموقع كمرجع مساعد لا كجهة حكومية.",
+    "url": "https://www.mashortich.com/تحميل-مجموعة-الأحكام-القضائية-الصادر/", "scope": "14 مجموعة PDF", "official": false
   }
 ]

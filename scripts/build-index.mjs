@@ -258,7 +258,7 @@ const mini = new MiniSearch({
   idField: "id",
   processTerm,
 });
-mini.addAll(records.map((rec, i) => ({
+const baseSearchRows = records.map((rec, i) => ({
   id: ids[i],
   title: rec.title_ar || "",
   summary: rec.summary_ar || "",
@@ -268,7 +268,24 @@ mini.addAll(records.map((rec, i) => ({
   valid: lite[i].v,
   number: rec.number || "",
   snippet: (rec.summary_ar || "").slice(0, 350),
-})));
+}));
+const externalSearchRows = ["official-docs.json", "drive-docs.json"].flatMap((file) => {
+  try {
+    const rows = JSON.parse(fs.readFileSync(path.join(OUT, file), "utf8"));
+    return Array.isArray(rows) ? rows : [];
+  } catch { return []; }
+}).filter((rec) => rec?.id && (rec.pdf_source || rec.generated_pdf)).map((rec) => ({
+  id: rec.id,
+  title: rec.title_ar || rec.title || "وثيقة رسمية",
+  summary: `${rec.summary_ar || ""} ${(rec.content_text || "").slice(0, 4000)}`,
+  tags: [...(rec.tags || []), rec.source_name || "", rec.category || ""].join(" "),
+  category: rec.category || "مصادر رسمية",
+  year: rec.hijri_year || "",
+  valid: 1,
+  number: rec.number || "",
+  snippet: (rec.summary_ar || rec.content_text || "").slice(0, 350),
+}));
+mini.addAll([...baseSearchRows, ...externalSearchRows]);
 fs.writeFileSync(path.join(OUT, "search-index.json"), JSON.stringify(mini.toJSON()), "utf8");
 
 console.log("اكتمل البناء:");

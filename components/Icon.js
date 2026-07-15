@@ -24,6 +24,7 @@ const paths = {
   plus: "M12 5v14M5 12h14",
   lock: "M5 11h14v10H5zM8 11V7a4 4 0 018 0v4",
   sparkle: "M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2L12 3z",
+  star: "M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.3L5.8 21 7 14.2 2 9.3l6.9-1L12 2z",
 };
 
 export default function Icon({ name, size = 18, className = "", stroke = 1.8 }) {
