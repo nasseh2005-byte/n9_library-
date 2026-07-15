@@ -10,7 +10,7 @@
   --line: #D7E0DA;
   --text: #071A38;
   --text-soft: #495A70;
-  --text-faint: #7C8998;
+  --text-faint: #647184;
   --gold: #B58A2B;
   --gold-strong: #D0A84C;
   --sundus: #739B87;
@@ -129,6 +129,27 @@ h3 { color: var(--text); }
 .text-muted { color: var(--text-soft); }
 .text-faint { color: var(--text-faint); }
 .text-gold-c { color: var(--gold); }
+
+/* ألوان Tailwind القديمة كانت مصممة للخلفية الداكنة. في الثيم الأبيض
+   نعيد ربطها بألوان الهوية المقروءة بدل ظهور النص أبيض أو باهتًا. */
+:root[data-theme="light"] .text-white,
+:root[data-theme="light"] .text-slate-100,
+:root[data-theme="light"] .text-slate-200 { color: var(--text) !important; }
+:root[data-theme="light"] .text-slate-300,
+:root[data-theme="light"] .text-slate-400 { color: var(--text-soft) !important; }
+:root[data-theme="light"] .text-slate-500 { color: var(--text-faint) !important; }
+:root[data-theme="light"] .text-gold,
+:root[data-theme="light"] .text-gold-light { color: var(--gold) !important; }
+:root[data-theme="light"] .text-saudi-light { color: #176B4C !important; }
+:root[data-theme="light"] .btn-primary,
+:root[data-theme="light"] .btn-primary .text-white,
+:root[data-theme="light"] .bg-saudi.text-white { color: #FFFFFF !important; }
+:root[data-theme="light"] .bg-night .text-white,
+:root[data-theme="light"] .bg-night .text-slate-100,
+:root[data-theme="light"] .bg-night .text-slate-200 { color: #F8FAFC !important; }
+:root[data-theme="light"] .bg-night .text-slate-300 { color: #CBD5E1 !important; }
+:root[data-theme="light"] .bg-night .text-slate-400,
+:root[data-theme="light"] .bg-night .text-slate-500 { color: #94A3B8 !important; }
 
 /* شريط التعاون */
 .partner-bar {

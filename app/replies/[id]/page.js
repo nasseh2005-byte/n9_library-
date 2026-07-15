@@ -6,10 +6,10 @@ import ReplyEditor from "./ReplyEditor";
 
 export const dynamic = "force-dynamic";
 
-export default function ReplyPage({ params }) {
+export default async function ReplyPage({ params }) {
   const member = getMember();
   if (!member) redirect("/login");
-  const r = getReply(params.id);
+  const r = await getReply(params.id);
   if (!r || !canSee(r, member, termsAccepted())) notFound();
 
   return (
@@ -31,6 +31,21 @@ export default function ReplyPage({ params }) {
                 <Link href={`/doc/${l.id}`} className="text-muted hover:text-gold-c">
                   {l.title} <span className="text-xs text-faint">({l.number} — {l.year}هـ)</span>
                 </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+
+      {r.attachments?.length ? (
+        <div className="card p-5">
+          <h2 className="mb-3 font-bold">مرفقات القضية ({r.attachments.length})</h2>
+          <ul className="grid gap-2 text-sm">
+            {r.attachments.map((attachment, index) => (
+              <li key={`${attachment.name}-${index}`}>
+                <a className="btn-ghost" href={`/api/reply-attachments/${encodeURIComponent(r.id)}/${index}`}>
+                  تنزيل {attachment.name}
+                </a>
               </li>
             ))}
           </ul>

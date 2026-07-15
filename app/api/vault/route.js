@@ -5,6 +5,7 @@ import { parseMemberToken, MEMBER_COOKIE, saveUpload, FILES_DIR, ensureDirs } fr
 import { analyzeDoc } from "@/lib/tags.mjs";
 import { audit } from "@/lib/audit";
 import { put } from "@vercel/blob";
+import { cloudStoreEnabled } from "@/lib/cloudStore";
 
 const OK_EXT = [".pdf", ".png", ".jpg", ".jpeg", ".docx", ".xlsx", ".md", ".txt"];
 
@@ -17,7 +18,7 @@ export async function POST(req) {
   const desc = String(form.get("desc") || "").trim();
   const requestedVisibility = ["public", "office", "private"].includes(form.get("visibility"))
     ? form.get("visibility") : "private";
-  const cloudEnabled = member.role === "developer" && Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+  const cloudEnabled = member.role === "developer" && cloudStoreEnabled();
   // The configured Vercel Blob store is public. Never label a cloud object as
   // private/office-only while its URL is publicly reachable.
   const visibility = cloudEnabled ? "public" : requestedVisibility;
@@ -71,6 +72,7 @@ export async function POST(req) {
       await put(`n9-records/${id}.json`, JSON.stringify(record), {
         access: "public",
         addRandomSuffix: false,
+        allowOverwrite: true,
         contentType: "application/json",
       });
     } else {
@@ -78,7 +80,7 @@ export async function POST(req) {
     }
     audit(member, "رفع مرفق", `${title} [${visibility}]`);
     return NextResponse.json({ ok: true, id, tags, category: auto.category, type: auto.type, file_url: record.file_url });
-  } catch {
-    return NextResponse.json({ error: "الحفظ متاح محليًا — على Vercel سيُستخدم تخزين سحابي" }, { status: 500 });
+  } catch (error) {
+    return NextResponse.json({ error: error.message || "تعذر الحفظ في Vercel Blob" }, { status: 500 });
   }
 }

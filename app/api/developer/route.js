@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { parseMemberToken, MEMBER_COOKIE, getMembersList, saveMembersList, getOffices, saveOffices } from "@/lib/members";
+import { parseMemberToken, MEMBER_COOKIE, getMembersList, makeStoredMember, memberForDisplay, saveMembersList, getOffices, saveOffices } from "@/lib/members";
 import { audit } from "@/lib/audit";
 
 // كل عمليات هذه الواجهة للمطوّر فقط (role === developer)
@@ -11,8 +11,8 @@ function dev(req) {
 export async function GET(req) {
   if (!dev(req)) return NextResponse.json({ error: "غير مصرح" }, { status: 403 });
   return NextResponse.json({
-    members: getMembersList().map((m) => ({ ...m, pin: `••${String(m.pin).slice(-2)}` })),
-    offices: getOffices(),
+    members: (await getMembersList()).map(memberForDisplay),
+    offices: await getOffices(),
   });
 }
 
@@ -24,10 +24,10 @@ export async function POST(req) {
   if (body.type === "office") {
     const name = String(body.name || "").trim();
     if (name.length < 2) return NextResponse.json({ error: "اسم المكتب مطلوب" }, { status: 400 });
-    const offices = getOffices().filter((o) => o.name !== name);
+    const offices = (await getOffices()).filter((o) => o.name !== name);
     offices.push({ id: name, name, logo: body.logo || null, added_at: new Date().toISOString() });
-    try { saveOffices(offices); audit(d, "أضاف مكتبًا", name); return NextResponse.json({ ok: true }); }
-    catch { return NextResponse.json({ error: "الحفظ محليًا فقط حاليًا" }, { status: 500 }); }
+    try { await saveOffices(offices); audit(d, "أضاف مكتبًا", name); return NextResponse.json({ ok: true, storage: "persistent" }); }
+    catch (error) { return NextResponse.json({ error: error.message || "تعذر الحفظ الدائم" }, { status: 500 }); }
   }
 
   if (body.type === "member") {
@@ -36,13 +36,10 @@ export async function POST(req) {
       return NextResponse.json({ error: "اسم مستخدم لاتيني 3-30 حرفًا" }, { status: 400 });
     if (!/^\d{6}$/.test(String(pin || "")))
       return NextResponse.json({ error: "الرمز 6 أرقام بالضبط" }, { status: 400 });
-    const list = getMembersList().filter((m) => m.user.toLowerCase() !== user.toLowerCase());
-    list.push({
-      user, pin: String(pin), name: name || user, office: office || "المكتب الرئيسي",
-      role: role === "developer" ? "developer" : "member", added_at: new Date().toISOString().slice(0, 10),
-    });
-    try { saveMembersList(list); audit(d, "أنشأ عضوًا", `${user} (${office})`); return NextResponse.json({ ok: true }); }
-    catch { return NextResponse.json({ error: "الحفظ محليًا فقط حاليًا" }, { status: 500 }); }
+    const list = (await getMembersList()).filter((m) => m.user.toLowerCase() !== user.toLowerCase());
+    list.push(makeStoredMember({ user, pin, name, office, role }));
+    try { await saveMembersList(list); audit(d, "أنشأ عضوًا", `${user} (${office})`); return NextResponse.json({ ok: true, storage: "persistent" }); }
+    catch (error) { return NextResponse.json({ error: error.message || "تعذر الحفظ الدائم" }, { status: 500 }); }
   }
 
   return NextResponse.json({ error: "نوع غير معروف" }, { status: 400 });
@@ -53,10 +50,10 @@ export async function DELETE(req) {
   if (!d) return NextResponse.json({ error: "غير مصرح" }, { status: 403 });
   const { kind, key } = await req.json().catch(() => ({}));
   if (kind === "member") {
-    saveMembersList(getMembersList().filter((m) => m.user !== key));
+    await saveMembersList((await getMembersList()).filter((m) => m.user !== key));
     audit(d, "حذف عضوًا", key);
   } else if (kind === "office") {
-    saveOffices(getOffices().filter((o) => o.name !== key));
+    await saveOffices((await getOffices()).filter((o) => o.name !== key));
     audit(d, "حذف مكتبًا", key);
   }
   return NextResponse.json({ ok: true });
