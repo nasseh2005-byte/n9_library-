@@ -20,7 +20,7 @@ export async function POST(req) {
   if (lock.locked) {
     return NextResponse.json({ error: `الحساب مقفل مؤقتًا — حاول بعد ${lock.minutes} دقيقة` }, { status: 429 });
   }
-  const m = getMembersList().find(
+  const m = (await getMembersList()).find(
     (x) => x.user.toLowerCase() === String(user).toLowerCase() && verifyMemberPin(x, pin)
   );
   if (!m) {

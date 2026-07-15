@@ -2,9 +2,10 @@ import Link from "next/link";
 import { getPosts } from "@/lib/posts";
 
 export const metadata = { title: "المدونة — N9 LIBRARY" };
+export const dynamic = "force-dynamic";
 
-export default function BlogPage() {
-  const posts = getPosts();
+export default async function BlogPage() {
+  const posts = await getPosts();
   return (
     <div className="grid gap-6">
       <h1 className="text-2xl font-bold text-white">المدونة</h1>
@@ -20,6 +21,7 @@ export default function BlogPage() {
             <div className="mt-3 flex flex-wrap items-center gap-2">
               {p.tags.map((t) => <span key={t} className="tag-pill">{t}</span>)}
               <span className="mr-auto text-xs text-gold">{p.author}</span>
+              {p.attachments?.length ? <span className="text-xs text-gold-c">{p.attachments.length} مرفق</span> : null}
             </div>
           </Link>
         ))}

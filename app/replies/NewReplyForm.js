@@ -5,15 +5,17 @@ import { useRouter } from "next/navigation";
 export default function NewReplyForm({ kinds }) {
   const [open, setOpen] = useState(false);
   const [f, setF] = useState({ kind: kinds[0], subject: "", facts: "", opponent_claims: "", visibility: "office" });
+  const [files, setFiles] = useState([]);
   const [msg, setMsg] = useState("");
   const router = useRouter();
 
   async function submit(e) {
     e.preventDefault();
     setMsg("يُنشئ الرد ويجلب السند النظامي…");
-    const res = await fetch("/api/replies", {
-      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(f),
-    });
+    const body = new FormData();
+    Object.entries(f).forEach(([key, value]) => body.append(key, value));
+    files.forEach((file) => body.append("attachments", file));
+    const res = await fetch("/api/replies", { method: "POST", body });
     const j = await res.json().catch(() => ({}));
     if (res.ok) router.push(`/replies/${j.id}`);
     else setMsg(j.error || "فشل");
@@ -36,6 +38,14 @@ export default function NewReplyForm({ kinds }) {
           <textarea className="input min-h-24"
             placeholder="أسباب الاستئناف / ادعاءات الخصم (سطر لكل سبب — سيُنشأ رد مقابل لكل سطر)"
             value={f.opponent_claims} onChange={(e) => setF({ ...f, opponent_claims: e.target.value })} />
+          <label className="grid gap-1 text-sm text-muted">
+            <span className="font-semibold">مرفقات القضية (اختياري)</span>
+            <input className="input" type="file" multiple
+              accept=".pdf,.png,.jpg,.jpeg,.docx,.xlsx,.md,.txt"
+              onChange={(e) => setFiles(Array.from(e.target.files || []).slice(0, 4))} />
+            <span className="text-xs text-faint">حتى 4 ملفات وبإجمالي 4MB. تُشفّر قبل حفظها في Vercel Blob.</span>
+            {files.length > 0 && <span className="text-xs text-gold-c">{files.map((file) => file.name).join("، ")}</span>}
+          </label>
           <div className="flex items-center gap-3">
             <select className="input w-44" value={f.visibility} onChange={(e) => setF({ ...f, visibility: e.target.value })}>
               <option value="office">خاص للمكتب</option>

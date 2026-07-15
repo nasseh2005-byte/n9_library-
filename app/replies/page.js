@@ -7,7 +7,7 @@ import NewReplyForm from "./NewReplyForm";
 export const metadata = { title: "الردود على القضاة — N9 LIBRARY" };
 export const dynamic = "force-dynamic";
 
-export default function RepliesPage() {
+export default async function RepliesPage() {
   const member = getMember();
   if (!member) {
     return (
@@ -24,7 +24,7 @@ export default function RepliesPage() {
     );
   }
   const termsOk = termsAccepted();
-  const replies = getReplies().filter((r) => canSee(r, member, termsOk));
+  const replies = (await getReplies()).filter((r) => canSee(r, member, termsOk));
 
   return (
     <div className="grid gap-6">
@@ -47,6 +47,7 @@ export default function RepliesPage() {
               <span className="shrink-0 rounded-full surface-2 px-2 py-0.5 text-[11px] text-gold-c">{r.status}</span>
             </div>
             <div className="mt-1 text-xs text-faint">{r.kind} • {r.owner} • {String(r.created_at).slice(0, 10)}</div>
+            {r.attachments?.length ? <div className="mt-2 text-xs text-gold-c">{r.attachments.length} مرفق</div> : null}
           </Link>
         ))}
         {replies.length === 0 && <div className="card p-8 text-center text-muted">لا ردود بعد — أنشئ أول رد من الأعلى</div>}

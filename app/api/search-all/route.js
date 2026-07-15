@@ -31,7 +31,7 @@ export async function GET(req) {
   if (member) {
     vault = vaultSearch(q, member, termsOk, 12); // يشمل الخزنة والحالات
     const needle = normalizeAr(q);
-    replies = getReplies().filter((r) => canSee(r, member, termsOk))
+    replies = (await getReplies()).filter((r) => canSee(r, member, termsOk))
       .filter((r) => normalizeAr(`${r.subject} ${r.kind} ${r.facts}`).includes(needle))
       .slice(0, 8)
       .map((r) => ({ id: r.id, subject: r.subject, kind: r.kind, status: r.status }));

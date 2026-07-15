@@ -7,9 +7,9 @@ import MembersForm from "./MembersForm";
 
 export const dynamic = "force-dynamic";
 
-export default function Dashboard() {
+export default async function Dashboard() {
   if (!isAdmin()) redirect("/admin");
-  const posts = getPosts();
+  const posts = await getPosts();
   const meta = getMeta();
   return (
     <div className="grid gap-6">
