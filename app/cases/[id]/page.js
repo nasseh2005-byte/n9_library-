@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { getMember, termsAccepted, canSee } from "@/lib/members";
 import { getCase } from "@/lib/cases";
 import CaseTools from "./CaseTools";
+import BackButton from "@/components/BackButton";
 
 export const dynamic = "force-dynamic";
 
@@ -14,6 +15,7 @@ export default function CasePage({ params }) {
 
   return (
     <div className="grid gap-6">
+      <BackButton fallback="/cases" label="العودة إلى ملفات الحالات" />
       <nav className="text-xs text-slate-500">
         <Link href="/cases" className="hover:text-saudi-light">ملفات الحالات</Link> / {c.title}
       </nav>

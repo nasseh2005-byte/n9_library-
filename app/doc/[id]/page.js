@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getDoc } from "@/lib/data";
 import PdfViewer from "@/components/PdfViewer";
 import FavoriteButton from "@/components/FavoriteButton";
+import BackButton from "@/components/BackButton";
 
 export async function generateMetadata({ params }) {
   const doc = getDoc(params.id);
@@ -21,6 +22,7 @@ export default function DocPage({ params }) {
 
   return (
     <div className="grid gap-6">
+      <BackButton fallback="/library" label="العودة إلى النتائج" />
       <nav className="text-xs text-slate-500">
         <Link href="/library" className="hover:text-saudi-light">المكتبة</Link>
         {" / "}

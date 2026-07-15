@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { getMember, termsAccepted, canSee } from "@/lib/members";
 import { getReply } from "@/lib/replies";
 import ReplyEditor from "./ReplyEditor";
+import BackButton from "@/components/BackButton";
 
 export const dynamic = "force-dynamic";
 
@@ -14,6 +15,7 @@ export default async function ReplyPage({ params }) {
 
   return (
     <div className="grid gap-6">
+      <BackButton fallback="/replies" label="العودة إلى الردود" />
       <nav className="text-xs text-faint">
         <Link href="/replies" className="hover:text-gold-c">الردود على القضاة</Link> / {r.subject}
       </nav>
