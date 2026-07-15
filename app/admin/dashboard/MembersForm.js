@@ -29,16 +29,16 @@ export default function MembersForm() {
 
   return (
     <div className="card p-6">
-      <h2 className="font-bold text-white">الإعدادات — أعضاء المجموعة (المكاتب)</h2>
-      <p className="mt-1 text-xs text-slate-500">هنا تحدد اسم المستخدم والرمز السري (6 أرقام) لكل مكتب منضم</p>
+      <h2 className="font-bold text-white">الإعدادات — فرق العمل والأعضاء</h2>
+      <p className="mt-1 text-xs text-slate-500">إدارة حسابات أعضاء شركة سلطان المالكي وفرق العمل التابعة لها</p>
       <form onSubmit={add} className="mt-4 grid gap-2 md:grid-cols-6">
-        <input className="input" dir="ltr" placeholder="username" value={form.user}
+        <input className="input" dir="ltr" placeholder="اسم المستخدم" value={form.user}
           onChange={(e) => setForm({ ...form, user: e.target.value })} required />
         <input className="input text-center" dir="ltr" placeholder="123456" inputMode="numeric"
           value={form.pin} onChange={(e) => setForm({ ...form, pin: e.target.value.replace(/\D/g, "").slice(0, 6) })} required />
         <input className="input" placeholder="الاسم" value={form.name}
           onChange={(e) => setForm({ ...form, name: e.target.value })} />
-        <input className="input" placeholder="المكتب" value={form.office}
+        <input className="input" placeholder="الفريق أو الفرع" value={form.office}
           onChange={(e) => setForm({ ...form, office: e.target.value })} />
         <select className="input" value={form.role} onChange={(e) => setForm({ ...form, role: e.target.value })}>
           <option value="member">عضو</option>

@@ -1,4 +1,4 @@
-export const metadata = { title: "N9 LAW SYSTEM — إدارة القضايا ومكاتب المحاماة" };
+export const metadata = { title: "N9 LAW SYSTEM — إدارة القضايا للشركات القانونية" };
 
 const features = [
   ["إدارة القضايا", "متابعة كاملة لدورة حياة القضية من القيد حتى الحكم والتنفيذ"],
@@ -6,7 +6,7 @@ const features = [
   ["المخالفات", "تسجيل ومتابعة المخالفات والاعتراضات ومهلها النظامية"],
   ["العملاء والموكلين", "ملف متكامل لكل عميل: قضاياه، مستنداته، مدفوعاته"],
   ["المستندات", "أرشفة اللوائح والمذكرات وربطها بالقضية والجلسة"],
-  ["تقارير المكتب", "لوحات متابعة لإنتاجية المكتب وحالة القضايا"],
+  ["تقارير الشركة", "لوحات متابعة للإنتاجية وحالة القضايا"],
 ];
 
 export default function N9LawSystemPage() {
@@ -18,7 +18,7 @@ export default function N9LawSystemPage() {
           <div className="text-xs font-semibold text-gold">من مطوّر N9 LIBRARY</div>
           <h1 className="mt-2 text-3xl font-bold text-white md:text-4xl">N9 LAW SYSTEM</h1>
           <p className="mx-auto mt-3 max-w-2xl text-slate-400">
-            نظام عربي متكامل لإدارة القضايا والمخالفات ومكاتب المحاماة —
+            نظام عربي متكامل لإدارة القضايا والمخالفات في الشركات القانونية —
             مصمم لسير العمل الحقيقي في المحاكم والجهات السعودية (معين، ناجز).
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">

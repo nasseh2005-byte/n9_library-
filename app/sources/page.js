@@ -27,7 +27,7 @@ export default function SourcesPage({ searchParams }) {
           </div>
           <h1 className="text-3xl font-bold md:text-4xl">المصادر الرسمية للمكتبة</h1>
           <p className="mt-3 max-w-2xl leading-8 text-muted">
-            تجمع N9 Library الأنظمة واللوائح والأحكام من الجهات السعودية الرسمية، وتحفظ رابط المصدر مع كل وثيقة. ملفات Google Drive مراجع مساندة للمكتب الرئيسي وليست بديلًا عن النسخة الرسمية.
+            تجمع N9 Library الأنظمة واللوائح والأحكام من الجهات السعودية الرسمية، وتحفظ رابط المصدر مع كل وثيقة. المراجع المهنية الخاصة بشركة سلطان المالكي مواد مساندة وليست بديلًا عن النسخة الرسمية.
           </p>
         </div>
       </section>
@@ -40,7 +40,7 @@ export default function SourcesPage({ searchParams }) {
                 <Icon name={item.official ? "shield" : "folder"} size={22} />
               </span>
               <span className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ${item.official ? "bg-saudi/10 text-saudi-dark" : "bg-gold/10 text-gold-dark"}`}>
-                {item.official ? "مصدر رسمي" : "مرجع المكتب"}
+                {item.official ? "مصدر رسمي" : "مرجع الشركة"}
               </span>
             </div>
             <h2 className="mt-4 text-lg font-bold">{item.short_name}</h2>
@@ -55,7 +55,7 @@ export default function SourcesPage({ searchParams }) {
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <h2 className="text-2xl font-bold">الوثائق المضافة من المصادر الجديدة</h2>
-            <p className="mt-1 text-sm text-muted">{all.length.toLocaleString("ar-SA")} وثيقة ومرجع ضمن المكتب الرئيسي</p>
+            <p className="mt-1 text-sm text-muted">{all.length.toLocaleString("ar-SA")} وثيقة ومرجع ضمن مكتبة الشركة</p>
           </div>
           <form className="grid w-full gap-2 sm:grid-cols-[1fr_220px_auto] md:w-auto">
             <input name="q" defaultValue={q} className="input min-w-64" placeholder="ابحث بعنوان الوثيقة…" />
@@ -75,7 +75,7 @@ export default function SourcesPage({ searchParams }) {
                   <h3 className="font-semibold leading-7">{doc.title_ar}</h3>
                   <div className="mt-1 text-xs text-muted">{doc.source_name} · {doc.category}</div>
                 </div>
-                <span className="shrink-0 rounded-full bg-saudi/10 px-2 py-1 text-[10px] font-semibold text-saudi-dark">المكتب الرئيسي</span>
+                <span className="shrink-0 rounded-full bg-saudi/10 px-2 py-1 text-[10px] font-semibold text-saudi-dark">شركة سلطان المالكي</span>
               </div>
               <div className="mt-3 flex flex-wrap gap-2">
                 <Link href={`/doc/${doc.id}`} className="btn-ghost text-xs">التفاصيل</Link>

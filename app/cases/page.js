@@ -12,8 +12,8 @@ export default function CasesPage() {
     return (
       <div className="mx-auto max-w-lg card p-10 text-center">
         <h1 className="text-xl font-bold text-white">ملفات الحالات</h1>
-        <p className="mt-3 text-slate-400">إدارة حالات المكتب بسياقاتها ومرفقاتها — للأعضاء فقط.</p>
-        <Link href="/login" className="btn-primary mt-6">دخول الأعضاء</Link>
+        <p className="mt-3 text-slate-400">مساحة خاصة لإدارة حالات شركة سلطان المالكي ومرفقاتها.</p>
+        <Link href="/login" className="btn-primary mt-6">دخول فريق الشركة</Link>
       </div>
     );
   }

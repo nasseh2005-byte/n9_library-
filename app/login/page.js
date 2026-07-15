@@ -24,9 +24,9 @@ export default function LoginPage() {
   return (
     <div className="mx-auto max-w-sm">
       <div className="card p-8">
-        <h1 className="text-xl font-bold text-white">دخول الأعضاء</h1>
+        <h1 className="text-xl font-bold text-white">دخول فريق الشركة</h1>
         <p className="mt-1 text-sm text-slate-400">
-          للمكاتب المنضمة للمجموعة — يمنحك الوصول للمصادر الخاصة (الأحكام والمرفقات)
+          مساحة خاصة لفريق شركة سلطان المالكي للوصول إلى الأحكام والمرفقات المهنية
         </p>
         <form onSubmit={login} className="mt-6 grid gap-3">
           <input value={user} onChange={(e) => setUser(e.target.value)}
@@ -34,7 +34,6 @@ export default function LoginPage() {
           <input value={pin} onChange={(e) => setPin(e.target.value.replace(/\D/g, "").slice(0, 6))}
             className="input text-center tracking-[0.5em]" placeholder="●●●●●●"
             inputMode="numeric" type="password" dir="ltr" />
-          <div className="text-xs text-slate-500">الرمز 6 أرقام — يحدده مدير المكتبة من صفحة الإعدادات</div>
           {err ? <div className="text-sm text-red-400">{err}</div> : null}
           <button className="btn-primary justify-center" disabled={pin.length !== 6 || !user}>دخول</button>
         </form>

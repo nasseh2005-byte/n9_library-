@@ -34,11 +34,11 @@ export default function DeveloperPage() {
       <UploadForm defaultOpen developerMode />
 
       <div className="card p-6">
-        <div className="mb-3 flex items-center gap-2 font-bold"><Icon name="clock" size={18} /> سجل التدقيق (كل المكاتب)</div>
+        <div className="mb-3 flex items-center gap-2 font-bold"><Icon name="clock" size={18} /> سجل التدقيق (كل الفرق)</div>
         <div className="max-h-80 overflow-auto text-sm">
           <table className="w-full text-right">
             <thead className="text-xs text-faint">
-              <tr><th className="py-1">الوقت</th><th>المستخدم</th><th>المكتب</th><th>الإجراء</th><th>الهدف</th></tr>
+              <tr><th className="py-1">الوقت</th><th>المستخدم</th><th>الفريق</th><th>الإجراء</th><th>الهدف</th></tr>
             </thead>
             <tbody>
               {audit.map((a, i) => (

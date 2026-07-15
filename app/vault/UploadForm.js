@@ -37,7 +37,7 @@ export default function UploadForm({ defaultOpen = false, developerMode = false 
   return (
     <div className="card p-5">
       <button onClick={() => setOpen(!open)} className="flex w-full items-center justify-between font-bold">
-        <span>{developerMode ? "تزويد المكتبة بملف أو مرجع جديد كمطور" : "رفع حكم أو مرفق جديد (تحليل وتصنيف تلقائي)"}</span>
+        <span>{developerMode ? "إضافة ملف أو مرجع جديد إلى المكتبة" : "رفع حكم أو مرفق جديد"}</span>
         <span className="text-faint">{open ? "▲" : "▼"}</span>
       </button>
       {open && (
@@ -77,14 +77,14 @@ export default function UploadForm({ defaultOpen = false, developerMode = false 
               <select name="visibility" className="input" value={form.visibility}
                 onChange={(e) => setForm({ ...form, visibility: e.target.value })}>
                 <option value="private">خاص لي فقط</option>
-                <option value="office">خاص للمكتب</option>
+                <option value="office">خاص بالشركة</option>
                 <option value="public">عام للجميع</option>
               </select>
             )}
             <input name="file" type="file" className="input md:col-span-2"
               accept=".pdf,.png,.jpg,.jpeg,.docx,.xlsx,.md,.txt" />
           </div>
-          {developerMode ? <div className="text-xs text-muted">يُحفظ الملف كمورد عام في Vercel Blob ويظهر ضمن مصادر المكتبة. الحد المباشر 4MB؛ للملفات الأكبر استخدم رابط المصدر الخارجي. لا ترفع مستندات سرية من هذا القسم.</div> : null}
+          {developerMode ? <div className="text-xs text-muted">سيظهر الملف ضمن المصادر العامة بعد حفظه، ويمكن إرفاق رابط المصدر الأصلي معه.</div> : null}
           <input name="external_url" className="input" dir="ltr"
             placeholder="رابط مصدر خارجي (اختياري) https://…"
             value={form.external_url} onChange={(e) => setForm({ ...form, external_url: e.target.value })} />

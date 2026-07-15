@@ -22,7 +22,7 @@ export default function AssistantPage() {
       <div className="text-center">
         <h1 className="text-2xl font-bold text-white">المساعد القانوني <span className="text-saudi-light">المدموج</span></h1>
         <p className="mt-2 text-sm text-slate-400">
-          يجيب من الأرشيف الرسمي وخزنة مكتبك مباشرة — مجاني بالكامل ويعمل داخل المنصة بدون أي خدمة خارجية
+          يجيب من الأرشيف الرسمي والمراجع المهنية المحفوظة داخل المنصة
         </p>
       </div>
       <form onSubmit={ask} className="flex gap-2">
@@ -67,7 +67,7 @@ export default function AssistantPage() {
       )}
       {d?.office?.length > 0 && (
         <div className="card p-5">
-          <h2 className="mb-2 text-sm font-bold" style={{ color: "var(--text)" }}>من خزنة مكتبك</h2>
+          <h2 className="mb-2 text-sm font-bold" style={{ color: "var(--text)" }}>من خزنة الشركة</h2>
           {d.office.map((o) => (
             <Link key={o.id} href={o.kind === "case" ? `/cases/${o.id.replace(/^case-/, "")}` : "/vault"}
               className="block border-b border-line py-2 text-sm text-slate-300 hover:text-saudi-light">
@@ -78,7 +78,7 @@ export default function AssistantPage() {
       )}
       {d && !d.memberSearched && (
         <div className="text-center text-xs text-slate-500">
-          <Link href="/login" className="text-saudi-light underline">سجّل دخولك</Link> ليبحث المساعد أيضًا في أحكام ومرفقات مكتبك
+          <Link href="/login" className="text-saudi-light underline">سجّل دخولك</Link> ليشمل البحث ملفات فريق الشركة الخاصة
         </div>
       )}
     </div>

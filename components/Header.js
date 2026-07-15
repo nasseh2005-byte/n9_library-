@@ -18,7 +18,7 @@ const secondary = [
   { href: "/vault", label: "الخزنة الخاصة", icon: "folder" },
   { href: "/cases", label: "ملفات الحالات", icon: "file" },
   { href: "/replies", label: "الردود على القضاة", icon: "reply" },
-  { href: "/office", label: "لوحة المكتب", icon: "building" },
+  { href: "/office", label: "لوحة الشركة", icon: "building" },
   { href: "/developer", label: "لوحة المطوّر", icon: "shield" },
   { href: "/blog", label: "المدونة", icon: "edit" },
   { href: "/n9-law-system", label: "N9 LAW SYSTEM", icon: "scale" },
@@ -64,7 +64,7 @@ export default function Header() {
         <div className="hidden items-center gap-2 lg:flex">
           <ThemeToggle />
           <Link href="/account" className="btn-ghost text-xs">حسابي</Link>
-          <Link href="/login" className="btn-ghost text-xs">دخول الأعضاء</Link>
+          <Link href="/login" className="btn-ghost text-xs">دخول فريق الشركة</Link>
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
@@ -78,7 +78,7 @@ export default function Header() {
                 </Link>
               ))}
               <div className="my-1 border-t" style={{ borderColor: "var(--line)" }} />
-              <Link href="/login" className="rounded-lg px-3 py-2 text-sm text-gold-c">دخول الأعضاء</Link>
+              <Link href="/login" className="rounded-lg px-3 py-2 text-sm text-gold-c">دخول فريق الشركة</Link>
               <Link href="/account" className="rounded-lg px-3 py-2 text-sm text-gold-c">حسابي الشخصي</Link>
             </div>
           </details>

@@ -54,7 +54,7 @@ export default function NewCaseForm({ types }) {
           <div className="flex items-center gap-3">
             <select className="input w-44" value={form.visibility}
               onChange={(e) => setForm({ ...form, visibility: e.target.value })}>
-              <option value="office">خاص للمكتب</option>
+              <option value="office">خاص بالشركة</option>
               <option value="private">خاص لي</option>
               <option value="public">عام</option>
             </select>
