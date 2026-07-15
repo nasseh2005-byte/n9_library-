@@ -34,7 +34,7 @@ export async function GET(req) {
   const today = new Date().toLocaleDateString("ar-SA");
   const md = `# مذكرة ${c.case_types.includes("مخالفات بلدية") || c.title.includes("اعتراض") ? "اعتراضية" : "قانونية"}
 
-**المكتب:** ${c.office} | **التاريخ:** ${today} | **المرجع:** ${c.id}
+**الشركة:** ${c.office} | **التاريخ:** ${today} | **المرجع:** ${c.id}
 
 ## الموضوع
 ${c.title}

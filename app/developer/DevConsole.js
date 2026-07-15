@@ -16,7 +16,7 @@ export default function DevConsole() {
   async function addOffice(e) {
     e.preventDefault();
     const r = await fetch("/api/developer", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ type: "office", name: oName }) });
-    setMsg((await r.json()).error || "أُضيف المكتب ✓"); if (r.ok) { setOName(""); load(); }
+    setMsg((await r.json()).error || "أُضيف الفريق ✓"); if (r.ok) { setOName(""); load(); }
   }
   async function addMember(e) {
     e.preventDefault();
@@ -30,11 +30,11 @@ export default function DevConsole() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-2">
-      {/* المكاتب */}
+      {/* فرق العمل */}
       <div className="card p-6">
-        <h2 className="font-bold">المكاتب ({data.offices.length})</h2>
+        <h2 className="font-bold">فرق العمل ({data.offices.length})</h2>
         <form onSubmit={addOffice} className="mt-3 flex gap-2">
-          <input className="input" placeholder="اسم مكتب جديد" value={oName} onChange={(e) => setOName(e.target.value)} required />
+          <input className="input" placeholder="اسم فريق أو فرع جديد" value={oName} onChange={(e) => setOName(e.target.value)} required />
           <button className="btn-primary shrink-0">إضافة</button>
         </form>
         <ul className="mt-3 grid gap-1 text-sm">
@@ -44,23 +44,23 @@ export default function DevConsole() {
               <button onClick={() => del("office", o.name)} className="text-xs text-red-400 hover:underline">حذف</button>
             </li>
           ))}
-          {data.offices.length === 0 && <li className="text-faint text-xs">لا مكاتب</li>}
+          {data.offices.length === 0 && <li className="text-faint text-xs">لا فرق مضافة</li>}
         </ul>
       </div>
 
       {/* الأعضاء */}
       <div className="card p-6">
-        <h2 className="font-bold">أعضاء المكاتب ({data.members.length})</h2>
+        <h2 className="font-bold">أعضاء الشركة ({data.members.length})</h2>
         <form onSubmit={addMember} className="mt-3 grid gap-2">
           <div className="grid grid-cols-2 gap-2">
-            <input className="input" dir="ltr" placeholder="username" value={mForm.user} onChange={(e) => setMForm({ ...mForm, user: e.target.value })} required />
+            <input className="input" dir="ltr" placeholder="اسم المستخدم" value={mForm.user} onChange={(e) => setMForm({ ...mForm, user: e.target.value })} required />
             <input className="input text-center" dir="ltr" placeholder="رمز 6 أرقام" inputMode="numeric"
               value={mForm.pin} onChange={(e) => setMForm({ ...mForm, pin: e.target.value.replace(/\D/g, "").slice(0, 6) })} required />
           </div>
           <input className="input" placeholder="الاسم الكامل" value={mForm.name} onChange={(e) => setMForm({ ...mForm, name: e.target.value })} />
           <div className="grid grid-cols-2 gap-2">
             <select className="input" value={mForm.office} onChange={(e) => setMForm({ ...mForm, office: e.target.value })} required>
-              <option value="">اختر المكتب</option>
+              <option value="">اختر الفريق أو الفرع</option>
               {data.offices.map((o) => <option key={o.id} value={o.name}>{o.name}</option>)}
             </select>
             <select className="input" value={mForm.role} onChange={(e) => setMForm({ ...mForm, role: e.target.value })}>

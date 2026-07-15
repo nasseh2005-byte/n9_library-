@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { getMember } from "@/lib/members";
 import { officeStats } from "@/lib/office";
 
-export const metadata = { title: "لوحة المكتب" };
+export const metadata = { title: "لوحة الشركة" };
 export const dynamic = "force-dynamic";
 
 export default function OfficePage() {
@@ -17,8 +17,8 @@ export default function OfficePage() {
   return (
     <div className="grid gap-6">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h1 className="text-2xl font-bold" style={{ color: "var(--text)" }}>لوحة المكتب</h1>
-        <span className="text-sm text-muted">{member.office}</span>
+        <h1 className="text-2xl font-bold" style={{ color: "var(--text)" }}>لوحة الشركة</h1>
+        <span className="text-sm text-muted">شركة سلطان المالكي للمحاماة والاستشارات القانونية</span>
       </div>
 
       <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
@@ -47,7 +47,7 @@ export default function OfficePage() {
       <div className="grid gap-6 md:grid-cols-2">
         <div className="card p-6">
           <h2 className="mb-4 font-bold" style={{ color: "var(--text)" }}>توزيع المرفقات بالخصوصية</h2>
-          {[["عام", s.byVis.public, "#25935f"], ["للمكتب", s.byVis.office, "#D4AF37"], ["خاص", s.byVis.private, "#64748b"]].map(([k, v, c]) => (
+          {[["عام", s.byVis.public, "#25935f"], ["للشركة", s.byVis.office, "#D4AF37"], ["خاص", s.byVis.private, "#64748b"]].map(([k, v, c]) => (
             <div key={k} className="mb-3 grid grid-cols-[5rem_1fr_2.5rem] items-center gap-3 text-sm">
               <span className="text-muted">{k}</span>
               <div className="h-4 overflow-hidden rounded surface-2">

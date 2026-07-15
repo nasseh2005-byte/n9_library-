@@ -83,6 +83,6 @@ export async function POST(req) {
     audit(member, "رفع مرفق", `${title} [${visibility}]`);
     return NextResponse.json({ ok: true, id, tags, category: record.category, type: record.type, file_url: record.file_url });
   } catch (error) {
-    return NextResponse.json({ error: error.message || "تعذر الحفظ في Vercel Blob" }, { status: 500 });
+    return NextResponse.json({ error: error.message || "تعذر حفظ الملف حاليًا" }, { status: 500 });
   }
 }

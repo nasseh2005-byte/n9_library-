@@ -17,8 +17,9 @@ export default function AboutPage() {
         </p>
       </div>
       <div className="card p-6">
-        <div className="text-xs font-semibold text-gold">الناشر والمترجم</div>
-        <div className="mt-2 text-xl font-bold text-white">NASSEH ZAHER ALNAMAN</div>
+        <div className="text-xs font-semibold text-gold">الشريك المهني</div>
+        <div className="mt-2 text-xl font-bold text-white">شركة سلطان المالكي للمحاماة والاستشارات القانونية</div>
+        <p className="mt-2 text-sm leading-7 text-muted">منصة قانونية تجمع المصادر الرسمية والمراجع المهنية وتسهّل الوصول إليها للباحثين والممارسين.</p>
         <a href="mailto:NASSEH2005@GMAIL.COM" className="mt-1 block text-saudi-light">
           NASSEH2005@GMAIL.COM
         </a>

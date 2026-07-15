@@ -43,12 +43,12 @@ export default function NewReplyForm({ kinds }) {
             <input className="input" type="file" multiple
               accept=".pdf,.png,.jpg,.jpeg,.docx,.xlsx,.md,.txt"
               onChange={(e) => setFiles(Array.from(e.target.files || []).slice(0, 4))} />
-            <span className="text-xs text-faint">حتى 4 ملفات وبإجمالي 4MB. تُشفّر قبل حفظها في Vercel Blob.</span>
+            <span className="text-xs text-faint">حتى 4 ملفات وبإجمالي 4MB، وتحفظ بصورة آمنة.</span>
             {files.length > 0 && <span className="text-xs text-gold-c">{files.map((file) => file.name).join("، ")}</span>}
           </label>
           <div className="flex items-center gap-3">
             <select className="input w-44" value={f.visibility} onChange={(e) => setF({ ...f, visibility: e.target.value })}>
-              <option value="office">خاص للمكتب</option>
+              <option value="office">خاص بالشركة</option>
               <option value="private">خاص لي</option>
             </select>
             <button className="btn-primary" disabled={!f.subject.trim()}>توليد الرد</button>

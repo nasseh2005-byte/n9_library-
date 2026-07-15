@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-// بانر التعاون: شعار N9 + شعار مكتب سلطان المالكي جنبًا إلى جنب
+// بانر التعاون: شعار N9 + شعار شركة سلطان المالكي جنبًا إلى جنب
 export default function PartnerBar() {
   return (
     <div className="partner-bar flex flex-col items-center justify-center gap-5 rounded-xl p-5 sm:flex-row sm:gap-8">
@@ -16,11 +16,11 @@ export default function PartnerBar() {
       <div className="hidden h-10 w-px sm:block" style={{ backgroundColor: "var(--line)" }} />
 
       <div className="flex items-center gap-3">
-        <Image src="/malki-logo.jpg" alt="مكتب سلطان المالكي للمحاماة" width={52} height={52}
+        <Image src="/malki-logo.jpg" alt="شركة سلطان المالكي للمحاماة والاستشارات القانونية" width={52} height={52}
           className="rounded-lg border-2 border-gold/40 shadow-lg" />
         <div className="text-center sm:text-right">
           <div className="font-serif text-base font-bold" style={{ color: "var(--text)" }}>
-            مكتب سلطان محمد المالكي للمحاماة
+            شركة سلطان المالكي للمحاماة والاستشارات القانونية
           </div>
           <div className="text-[11px] text-faint" dir="ltr">Attorneys And Legal Consultant</div>
         </div>

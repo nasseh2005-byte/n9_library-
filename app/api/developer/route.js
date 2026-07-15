@@ -23,10 +23,10 @@ export async function POST(req) {
 
   if (body.type === "office") {
     const name = String(body.name || "").trim();
-    if (name.length < 2) return NextResponse.json({ error: "اسم المكتب مطلوب" }, { status: 400 });
+    if (name.length < 2) return NextResponse.json({ error: "اسم الفريق مطلوب" }, { status: 400 });
     const offices = (await getOffices()).filter((o) => o.name !== name);
     offices.push({ id: name, name, logo: body.logo || null, added_at: new Date().toISOString() });
-    try { await saveOffices(offices); audit(d, "أضاف مكتبًا", name); return NextResponse.json({ ok: true, storage: "persistent" }); }
+    try { await saveOffices(offices); audit(d, "أضاف فريقًا", name); return NextResponse.json({ ok: true, storage: "persistent" }); }
     catch (error) { return NextResponse.json({ error: error.message || "تعذر الحفظ الدائم" }, { status: 500 }); }
   }
 
@@ -54,7 +54,7 @@ export async function DELETE(req) {
     audit(d, "حذف عضوًا", key);
   } else if (kind === "office") {
     await saveOffices((await getOffices()).filter((o) => o.name !== key));
-    audit(d, "حذف مكتبًا", key);
+    audit(d, "حذف فريقًا", key);
   }
   return NextResponse.json({ ok: true });
 }

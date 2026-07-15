@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 
 const VIS = {
   public: ["عام", "bg-saudi/15 text-saudi-light"],
-  office: ["للمكتب", "bg-gold/15 text-gold"],
+  office: ["للشركة", "bg-gold/15 text-gold"],
   private: ["خاص", "bg-slate-500/20 text-slate-400"],
 };
 

@@ -22,25 +22,25 @@ export default function ProfilePage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="font-serif text-xl font-bold" style={{ color: "var(--text)" }}>{member.user}</h1>
-            <div className="mt-1 text-sm text-muted">{member.office}</div>
+            <div className="mt-1 text-sm text-muted">شركة سلطان المالكي للمحاماة والاستشارات القانونية</div>
             <div className="mt-1 text-xs">
               {member.role === "developer"
                 ? <span className="text-gold-c">مطوّر {termsAccepted() ? "— وصول كامل مفعّل" : "— "}{!termsAccepted() && <Link href="/terms" className="underline">فعّل الوصول الكامل</Link>}</span>
-                : <span className="text-gold-c">عضو مكتب</span>}
+                : <span className="text-gold-c">عضو فريق الشركة</span>}
             </div>
           </div>
           <LogoutButton />
         </div>
         {member.role === "developer" && (
           <div className="mt-4 flex flex-wrap gap-2 border-t pt-4" style={{ borderColor: "var(--line)" }}>
-            <Link href="/developer" className="btn-primary text-xs">لوحة المطوّر — إدارة المكاتب والأعضاء</Link>
-            <Link href="/office" className="btn-ghost text-xs">لوحة المكتب</Link>
+            <Link href="/developer" className="btn-primary text-xs">لوحة المطوّر — إدارة الفرق والأعضاء</Link>
+            <Link href="/office" className="btn-ghost text-xs">لوحة الشركة</Link>
             <Link href="/replies" className="btn-ghost text-xs">الردود على القضاة</Link>
           </div>
         )}
       </div>
       <div className="grid grid-cols-3 gap-4">
-        {[["خاص لي", counts.private], ["للمكتب", counts.office], ["عام", counts.public]].map(([k, v]) => (
+        {[["خاص لي", counts.private], ["للشركة", counts.office], ["عام", counts.public]].map(([k, v]) => (
           <div key={k} className="card p-4 text-center">
             <div className="text-xl font-bold text-gold">{v}</div>
             <div className="text-xs text-slate-400">{k}</div>

@@ -21,10 +21,10 @@ export default function Footer() {
         <div>
           <div className="mb-2 text-sm font-semibold text-gold-c">بالتعاون مع</div>
           <div className="flex items-center gap-3">
-            <Image src="/malki-logo.jpg" alt="مكتب سلطان المالكي" width={52} height={52}
+            <Image src="/malki-logo.jpg" alt="شركة سلطان المالكي للمحاماة والاستشارات القانونية" width={52} height={52}
               className="rounded-lg border border-gold/30" />
             <div className="text-sm">
-              <div className="font-serif font-bold" style={{ color: "var(--text)" }}>مكتب سلطان محمد المالكي</div>
+              <div className="font-serif font-bold" style={{ color: "var(--text)" }}>شركة سلطان المالكي</div>
               <div className="text-xs text-muted">للمحاماة والاستشارات القانونية</div>
             </div>
           </div>
@@ -41,12 +41,14 @@ export default function Footer() {
             <Link href="/sources" className="text-muted hover:text-gold-c">المصادر الرسمية</Link>
             <Link href="/assistant" className="text-muted hover:text-gold-c">المساعد القانوني</Link>
             <Link href="/about" className="text-muted hover:text-gold-c">حول المنصة</Link>
+            <Link href="/privacy" className="text-muted hover:text-gold-c">سياسة الخصوصية</Link>
+            <Link href="/terms" className="text-muted hover:text-gold-c">الشروط والأحكام</Link>
             <a href="mailto:NASSEH2005@GMAIL.COM" className="text-gold-c" dir="ltr">NASSEH2005@GMAIL.COM</a>
           </div>
         </div>
       </div>
       <div className="border-t py-3 text-center text-xs text-faint" style={{ borderColor: "var(--line)" }}>
-        © {new Date().getFullYear()} N9 LIBRARY — NASSEH ZAHER ALNAMAN — جميع الوثائق الرسمية ملك لمصادرها
+        © {new Date().getFullYear()} N9 LIBRARY — شركة سلطان المالكي للمحاماة والاستشارات القانونية — جميع الوثائق الرسمية ملك لمصادرها
       </div>
     </footer>
   );

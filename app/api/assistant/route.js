@@ -78,7 +78,7 @@ export async function GET(req) {
   const answer = best ? {
     text: best,
     keyPoints: evidence.slice(1, 4),
-    confidence: pageHits.length || laws.length ? "مرتفع نسبيًا لارتباطه بمصادر مفهرسة" : "استرشادي من ملفات المكتب",
+    confidence: pageHits.length || laws.length ? "مرتفع نسبيًا لارتباطه بمصادر مفهرسة" : "استرشادي من ملفات الشركة",
     source: pageHits[0]
       ? `${pageHits[0].title} — صفحة ${pageHits[0].page}`
       : laws[0] ? `${laws[0].title} (${laws[0].number || ""} لعام ${laws[0].year}هـ)` : office[0]?.title,

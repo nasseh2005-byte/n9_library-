@@ -106,7 +106,7 @@ export default function Home() {
             <div className="text-xs font-semibold text-gold">إعلان</div>
             <h2 className="mt-1 text-2xl font-bold text-white">N9 LAW SYSTEM</h2>
             <p className="mt-2 max-w-xl text-slate-400">
-              نظام متكامل لإدارة القضايا والمخالفات ومكاتب المحاماة — الجلسات، المواعيد،
+              نظام متكامل لإدارة القضايا والمخالفات في الشركات القانونية — الجلسات، المواعيد،
               العملاء، والمستندات في مكان واحد.
             </p>
           </div>

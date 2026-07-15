@@ -35,8 +35,8 @@ export default function Hub() {
       <section className="grid gap-4 md:grid-cols-3">
         {[
           ["shield", "مصادر رسمية", "الأرشيف الوطني السعودي وديوان المظالم واللجان المصرفية", "/sources"],
-          ["book", "7 آلاف+ مرجع", "فهرس موحّد للوثائق الرسمية والمراجع المضافة للمكتب الرئيسي", "/library"],
-          ["folder", "تزويد مستمر", "رفع ملفات المطور وفهرسة المصادر الجديدة داخل المنصة", "/developer"],
+          ["book", "8 آلاف+ مرجع", "فهرس موحّد للوثائق الرسمية والمراجع المهنية في مكتبة الشركة", "/library"],
+          ["folder", "مشاركة المجتمع", "يمكن للزوار اقتراح مصادر وملفات جديدة لإثراء المكتبة", "/suggestions"],
         ].map(([icon, title, desc, href]) => (
           <Link key={href} href={href} className="card source-card p-5">
             <span className="grid h-10 w-10 place-items-center rounded-xl bg-saudi/10 text-saudi"><Icon name={icon} size={20} /></span>
@@ -86,7 +86,7 @@ export default function Hub() {
           ["search", "البحث الشامل", "ابحث في الأرشيف والخزنة والحالات دفعة واحدة", "/find"],
           ["sparkle", "المساعد القانوني", "اسأل واحصل على جواب من الأرشيف — مجانًا", "/assistant"],
           ["reply", "الردود على القضاة", "رد جاهز على الاستئناف ومذكرات الخصم", "/replies"],
-          ["folder", "خزنة المكاتب", "أحكام ومرفقات وملفات حالات خاصة", "/vault"],
+          ["folder", "خزنة الشركة", "أحكام ومرفقات وملفات حالات خاصة بفريق الشركة", "/vault"],
         ].map(([icon, title, desc, href]) => (
           <Link key={href} href={href} className="card p-5 transition-all hover:-translate-y-0.5 hover:border-gold">
             <span className="grid h-10 w-10 place-items-center rounded-lg surface-2 text-gold-c"><Icon name={icon} size={20} /></span>
@@ -98,8 +98,8 @@ export default function Hub() {
 
       <section className="card card-gold flex flex-col items-center justify-between gap-4 p-7 md:flex-row">
         <div>
-          <div className="text-xs font-semibold text-gold-c">من نفس المطور</div>
-          <h2 className="mt-1 text-xl font-bold">N9 LAW SYSTEM — إدارة القضايا ومكاتب المحاماة</h2>
+          <div className="text-xs font-semibold text-gold-c">من منظومة N9</div>
+          <h2 className="mt-1 text-xl font-bold">N9 LAW SYSTEM — إدارة القضايا للشركات القانونية</h2>
         </div>
         <div className="flex gap-2">
           <a href="https://n9-apps-script-edition.vercel.app/" target="_blank" rel="noopener noreferrer"

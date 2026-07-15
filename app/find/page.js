@@ -34,7 +34,7 @@ function FindInner() {
         <span className="text-gold-c"><Icon name="search" size={24} /></span>
         <h1 className="font-serif text-2xl font-bold">البحث الشامل</h1>
       </div>
-      <p className="text-sm text-muted">يبحث في الأرشيف الرسمي، وخزنة مكتبك، وحالاتك، وردودك — دفعة واحدة.</p>
+      <p className="text-sm text-muted">يبحث في الأرشيف الرسمي وملفات الشركة والحالات والردود في مكان واحد.</p>
       <form onSubmit={run} className="flex gap-2">
         <input className="input" value={q} onChange={(e) => setQ(e.target.value)} placeholder="ابحث في كل شيء…" autoFocus />
         <button className="btn-primary shrink-0" disabled={loading}>{loading ? "…" : "بحث"}</button>
