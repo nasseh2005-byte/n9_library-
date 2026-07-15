@@ -2,35 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===== الهوية القانونية: كحلي ملكي + ذهبي ===== */
-:root, :root[data-theme="dark"] {
-  --bg: #0A0F2C;
-  --panel: #121A3F;
-  --panel-2: #0D1333;
-  --line: #26305F;
-  --text: #E8EAF6;
-  --text-soft: #9AA3C7;
-  --text-faint: #6B7499;
-  --gold: #C9A227;
-  --gold-strong: #E3C558;
-  color-scheme: dark;
-}
-:root[data-theme="light"] {
-  --bg: #F7F5EF;            /* عاجي رسمي */
+/* ===== هوية N9: أبيض + ذهبي + نيلي + أخضر سندسي ===== */
+:root, :root[data-theme="light"] {
+  --bg: #F7F9F7;
   --panel: #FFFFFF;
-  --panel-2: #F0EDE4;
-  --line: #DDD6C4;
-  --text: #1B2148;          /* كحلي غامق */
-  --text-soft: #4A5378;
-  --text-faint: #8B92AD;
-  --gold: #9A7B1A;
-  --gold-strong: #C9A227;
+  --panel-2: #F0F4F1;
+  --line: #D7E0DA;
+  --text: #071A38;
+  --text-soft: #495A70;
+  --text-faint: #7C8998;
+  --gold: #B58A2B;
+  --gold-strong: #D0A84C;
+  --sundus: #739B87;
+  --sundus-soft: #E9F1EC;
   color-scheme: light;
 }
+:root[data-theme="dark"] {
+  --bg: #071126;
+  --panel: #0E1C35;
+  --panel-2: #0A172D;
+  --line: #263B54;
+  --text: #F4F7F5;
+  --text-soft: #AAB8C5;
+  --text-faint: #72849A;
+  --gold: #C8A24A;
+  --gold-strong: #E1C16F;
+  --sundus: #83B39A;
+  --sundus-soft: #18392F;
+  color-scheme: dark;
+}
 
-body { background-color: var(--bg); color: var(--text); }
-html { background-color: #0A0F2C; }
-html[data-theme="light"] { background-color: #F7F5EF; }
+body {
+  background:
+    radial-gradient(circle at 90% 0%, color-mix(in srgb, var(--sundus) 11%, transparent), transparent 32rem),
+    radial-gradient(circle at 8% 12%, color-mix(in srgb, var(--gold) 9%, transparent), transparent 30rem),
+    var(--bg);
+  color: var(--text);
+}
+html { background-color: #F7F9F7; }
+html[data-theme="dark"] { background-color: #071126; }
 
 /* العناوين بخط عربي فخم (Amiri) - الطابع القانوني */
 h1, h2 { font-family: var(--font-amiri), serif; letter-spacing: 0; color: var(--text); }
@@ -39,8 +49,10 @@ h3 { color: var(--text); }
 .card {
   background-color: var(--panel);
   border: 1px solid var(--line);
-  @apply rounded-xl transition-colors;
+  box-shadow: 0 16px 45px -34px rgba(7, 26, 56, 0.34);
+  @apply rounded-2xl transition-all;
 }
+.card:hover { box-shadow: 0 20px 55px -36px rgba(7, 26, 56, 0.46); }
 /* خط ذهبي رفيع أعلى البطاقات المهمة */
 .card-gold {
   border-top: 3px solid var(--gold);
@@ -72,12 +84,12 @@ h3 { color: var(--text); }
 /* الزر الرئيسي: ذهبي قانوني بنص كحلي */
 .btn-primary {
   @apply btn;
-  background: linear-gradient(135deg, #C9A227, #B08E1E);
-  color: #12183A;
+  background: linear-gradient(135deg, #0D2D54, #071A38);
+  color: #FFFFFF;
 }
 .btn-primary:hover {
-  background: linear-gradient(135deg, #E3C558, #C9A227);
-  box-shadow: 0 4px 18px -4px rgba(201, 162, 39, 0.5);
+  background: linear-gradient(135deg, #16416F, #0B294C);
+  box-shadow: 0 8px 22px -10px rgba(7, 26, 56, 0.65);
 }
 .btn-ghost {
   @apply btn;
@@ -104,6 +116,7 @@ h3 { color: var(--text); }
 }
 .input::placeholder { color: var(--text-faint); }
 .input:focus { border-color: var(--gold); outline: none; }
+.input:focus { box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 14%, transparent); }
 
 .prose-ar { @apply leading-8; color: var(--text-soft); }
 .prose-ar h2 { @apply mt-6 mb-2 text-xl font-bold; color: var(--gold); }
@@ -119,6 +132,21 @@ h3 { color: var(--text); }
 
 /* شريط التعاون */
 .partner-bar {
-  background: linear-gradient(90deg, rgba(59, 67, 184, 0.12), rgba(201, 162, 39, 0.1));
+  background: linear-gradient(110deg, color-mix(in srgb, var(--sundus) 12%, var(--panel)), color-mix(in srgb, var(--gold) 9%, var(--panel)));
   border: 1px solid var(--line);
 }
+
+.source-hero {
+  position: relative;
+  background:
+    linear-gradient(115deg, color-mix(in srgb, var(--sundus) 18%, var(--panel)), var(--panel) 55%, color-mix(in srgb, var(--gold) 10%, var(--panel)));
+  border-color: color-mix(in srgb, var(--sundus) 45%, var(--line));
+}
+.source-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0 65% 0 0;
+  background: linear-gradient(135deg, transparent, color-mix(in srgb, var(--gold) 18%, transparent));
+  pointer-events: none;
+}
+.source-card { border-top: 3px solid var(--sundus); }

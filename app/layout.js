@@ -16,7 +16,7 @@ const amiri = Amiri({
 });
 
 export const metadata = {
-  metadataBase: new URL(process.env.SITE_URL || "https://n9library.vercel.app"),
+  metadataBase: new URL(process.env.SITE_URL || "https://n9-library.vercel.app"),
   title: {
     default: "N9 LIBRARY — المكتبة القانونية السعودية",
     template: "%s — N9 LIBRARY",
@@ -28,14 +28,14 @@ export const metadata = {
   openGraph: { title: "N9 LIBRARY", description: "المكتبة القانونية السعودية الرقمية", type: "website" },
 };
 
-export const viewport = { themeColor: "#0B1220" };
+export const viewport = { themeColor: "#F7F9F7" };
 
 // يضبط الثيم قبل رسم الصفحة لمنع الوميض
-const themeScript = `(function(){try{var t=localStorage.getItem('n9-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`;
+const themeScript = `(function(){try{var t=localStorage.getItem('n9-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`;
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ar" dir="rtl" data-theme="dark">
+    <html lang="ar" dir="rtl" data-theme="light">
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

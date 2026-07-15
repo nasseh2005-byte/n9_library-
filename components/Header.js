@@ -6,6 +6,7 @@ import Icon from "./Icon";
 
 const primary = [
   { href: "/library", label: "المكتبة", icon: "book" },
+  { href: "/sources", label: "المصادر", icon: "shield" },
   { href: "/find", label: "البحث الشامل", icon: "search" },
   { href: "/assistant", label: "المساعد", icon: "sparkle" },
   { href: "/stats", label: "الإحصائيات", icon: "chart" },
@@ -27,14 +28,14 @@ export default function Header() {
     <header className="sticky top-0 z-40 border-b backdrop-blur"
       style={{ borderColor: "var(--line)", backgroundColor: "color-mix(in srgb, var(--bg) 88%, transparent)" }}>
       <SWRegister />
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2.5">
         <Link href="/" className="flex items-center gap-3 shrink-0">
-          <span className="rounded-lg bg-white p-1 shadow-md ring-1 ring-gold/40">
-            <Image src="/n9-logo.png" alt="N9" width={52} height={24} priority className="h-6 w-auto" />
+          <span className="overflow-hidden rounded-xl bg-white p-0.5 shadow-sm ring-1 ring-gold/30">
+            <Image src="/n9-library-logo.png" alt="N9 Library" width={48} height={48} priority className="h-11 w-11 scale-[1.28] object-cover" />
           </span>
           <div className="leading-tight">
-            <div className="font-serif font-bold" style={{ color: "var(--text)" }}>N9 LIBRARY</div>
-            <div className="text-[11px] text-gold-c">Saudi Law Edition</div>
+            <div className="font-serif text-lg font-bold tracking-wide" style={{ color: "var(--text)" }}>N9 LIBRARY</div>
+            <div className="text-[10px] font-semibold text-gold-c">المكتبة القانونية السعودية</div>
           </div>
         </Link>
 

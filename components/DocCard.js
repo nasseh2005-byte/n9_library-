@@ -8,7 +8,7 @@ export default function DocCard({ d }) {
         <span className={`shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold ${
           d.v ? "bg-saudi/15 text-saudi-light" : "bg-slate-500/15 text-slate-400"
         }`}>
-          {d.v ? "سارية" : "غير سارية"}
+          {d.external ? "مصدر مضاف" : d.v ? "سارية" : "غير سارية"}
         </span>
       </div>
       <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-400">
@@ -16,6 +16,7 @@ export default function DocCard({ d }) {
         {d.y ? <span>{d.y}هـ</span> : null}
         {d.n ? <span>رقم {d.n}</span> : null}
         {d.ins ? <span>{d.ins}</span> : null}
+        {d.source ? <span>{d.source}</span> : null}
       </div>
       {d.tags?.length ? (
         <div className="mt-3 flex flex-wrap gap-1.5">

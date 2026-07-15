@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getMembersList, makeMemberToken, MEMBER_COOKIE } from "@/lib/members";
+import { getMembersList, makeMemberToken, MEMBER_COOKIE, verifyMemberPin } from "@/lib/members";
 import { audit } from "@/lib/audit";
 import { checkLock, recordFail, recordSuccess, rateLimit, clientIp } from "@/lib/ratelimit";
 
@@ -21,7 +21,7 @@ export async function POST(req) {
     return NextResponse.json({ error: `الحساب مقفل مؤقتًا — حاول بعد ${lock.minutes} دقيقة` }, { status: 429 });
   }
   const m = getMembersList().find(
-    (x) => x.user.toLowerCase() === String(user).toLowerCase() && String(x.pin) === String(pin)
+    (x) => x.user.toLowerCase() === String(user).toLowerCase() && verifyMemberPin(x, pin)
   );
   if (!m) {
     recordFail(lockKey);

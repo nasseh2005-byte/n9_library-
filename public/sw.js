@@ -1,6 +1,6 @@
 // Service Worker بسيط: كاش القشرة (shell) للتصفح الأوفلاين الأساسي
-const CACHE = "n9-v1";
-const SHELL = ["/", "/sa", "/library", "/n9-logo.svg", "/manifest.json"];
+const CACHE = "n9-v2";
+const SHELL = ["/", "/sa", "/library", "/sources", "/n9-library-logo.png", "/manifest.json"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));

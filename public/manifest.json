@@ -4,11 +4,11 @@
   "description": "المكتبة القانونية السعودية الرقمية — بحث ذكي ومساعد قانوني",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0B1220",
-  "theme_color": "#0B1220",
+  "background_color": "#F7F9F7",
+  "theme_color": "#F7F9F7",
   "lang": "ar",
   "dir": "rtl",
   "icons": [
-    { "src": "/n9-logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+    { "src": "/n9-library-logo.png", "sizes": "1254x1254", "type": "image/png", "purpose": "any maskable" }
   ]
 }

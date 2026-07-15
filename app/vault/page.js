@@ -2,6 +2,8 @@ import Link from "next/link";
 import { getMember, termsAccepted } from "@/lib/members";
 import { vaultSearch } from "@/lib/vaultIndex";
 import UploadForm from "./UploadForm";
+import { getCloudUploads } from "@/lib/cloudUploads";
+import { canSee } from "@/lib/members";
 
 export const metadata = { title: "الخزنة الخاصة — N9 LIBRARY" };
 export const dynamic = "force-dynamic";
@@ -12,7 +14,7 @@ const VIS = {
   private: ["خاص", "bg-slate-500/20 text-slate-400"],
 };
 
-export default function VaultPage({ searchParams }) {
+export default async function VaultPage({ searchParams }) {
   const member = getMember();
   const termsOk = termsAccepted();
   const q = (searchParams?.q || "").trim();
@@ -31,7 +33,13 @@ export default function VaultPage({ searchParams }) {
   }
 
   // بحث عميق: العنوان + الوصف + التاغات + محتوى الملفات النصية + سياقات الحالات، مع تحمل الخطأ الإملائي
-  const items = vaultSearch(q, member, termsOk, 60);
+  const localItems = vaultSearch(q, member, termsOk, 60);
+  const cloud = await getCloudUploads();
+  const needle = q.toLowerCase();
+  const cloudItems = cloud.filter((r) => canSee(r, member, termsOk))
+    .filter((r) => !needle || `${r.title} ${r.desc || ""} ${(r.tags || []).join(" ")}`.toLowerCase().includes(needle))
+    .map((r) => ({ ...r, kind: "upload", tagsArr: r.tags || [], hasFile: Boolean(r.file_url), snippet: r.desc || "" }));
+  const items = [...cloudItems, ...localItems.filter((r) => !cloudItems.some((c) => c.id === r.id))].slice(0, 60);
 
   return (
     <div className="grid gap-6">
@@ -80,6 +88,8 @@ export default function VaultPage({ searchParams }) {
               <div className="mt-3 flex gap-2">
                 {r.kind === "case" ? (
                   <Link href={`/cases/${r.id.replace(/^case-/, "")}`} className="btn-primary text-xs">فتح ملف الحالة</Link>
+                ) : r.file_url ? (
+                  <a href={r.download_url || r.file_url} target="_blank" rel="noopener noreferrer" className="btn-primary text-xs">تنزيل الملف</a>
                 ) : r.hasFile ? (
                   <a href={`/api/file/${r.id}`} target="_blank" className="btn-primary text-xs">فتح الملف</a>
                 ) : null}

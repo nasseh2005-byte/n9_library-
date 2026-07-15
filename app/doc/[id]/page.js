@@ -15,7 +15,7 @@ export async function generateMetadata({ params }) {
 export default function DocPage({ params }) {
   const doc = getDoc(params.id);
   if (!doc) notFound();
-  const isValid = String(doc.valid).includes("سارية") && !String(doc.valid).includes("غير");
+  const isValid = doc.external || (String(doc.valid).includes("سارية") && !String(doc.valid).includes("غير"));
 
   return (
     <div className="grid gap-6">
@@ -70,13 +70,18 @@ export default function DocPage({ params }) {
 
         <div className="mt-6 flex flex-wrap gap-3">
           {doc.pdf_source ? (
-            <a href={`/api/pdf?u=${encodeURIComponent(doc.pdf_source)}`} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              تحميل / فتح PDF
-            </a>
+            <>
+              <a href={`/api/pdf?u=${encodeURIComponent(doc.pdf_source)}`} target="_blank" rel="noopener noreferrer" className="btn-ghost">
+                عرض PDF
+              </a>
+              <a href={`/api/pdf?u=${encodeURIComponent(doc.pdf_source)}&download=1&filename=${encodeURIComponent(doc.title_ar)}`} className="btn-primary">
+                تنزيل PDF
+              </a>
+            </>
           ) : null}
           {doc.source_page ? (
             <a href={doc.source_page} target="_blank" rel="noopener noreferrer" className="btn-ghost">
-              صفحة الوثيقة في المركز الوطني
+              صفحة الوثيقة في المصدر الأصلي
             </a>
           ) : null}
         </div>

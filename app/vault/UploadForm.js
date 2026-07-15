@@ -2,11 +2,11 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function UploadForm() {
-  const [form, setForm] = useState({ title: "", desc: "", tags: "", visibility: "private", external_url: "" });
+export default function UploadForm({ defaultOpen = false, developerMode = false } = {}) {
+  const [form, setForm] = useState({ title: "", desc: "", tags: "", visibility: developerMode ? "public" : "private", external_url: "" });
   const [analysis, setAnalysis] = useState(null);
   const [msg, setMsg] = useState("");
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(defaultOpen);
   const router = useRouter();
 
   // التحليل المنطقي اللحظي: يفهم العنوان ويقترح التاغات والتصنيف قبل الحفظ
@@ -28,7 +28,7 @@ export default function UploadForm() {
     if (res.ok) {
       setMsg(`تم ✓ — صُنف تلقائيًا: ${j.category} (${j.type})`);
       e.target.reset();
-      setForm({ title: "", desc: "", tags: "", visibility: "private", external_url: "" });
+      setForm({ title: "", desc: "", tags: "", visibility: developerMode ? "public" : "private", external_url: "" });
       setAnalysis(null);
       router.refresh();
     } else setMsg(j.error || "فشل الحفظ");
@@ -37,7 +37,7 @@ export default function UploadForm() {
   return (
     <div className="card p-5">
       <button onClick={() => setOpen(!open)} className="flex w-full items-center justify-between font-bold">
-        <span>رفع حكم أو مرفق جديد (تحليل وتصنيف تلقائي)</span>
+        <span>{developerMode ? "تزويد المكتبة بملف أو مرجع جديد كمطور" : "رفع حكم أو مرفق جديد (تحليل وتصنيف تلقائي)"}</span>
         <span className="text-faint">{open ? "▲" : "▼"}</span>
       </button>
       {open && (
@@ -64,15 +64,23 @@ export default function UploadForm() {
           <input name="tags" className="input" placeholder="تاغات إضافية يدوية (اختياري، مفصولة بفواصل)"
             value={form.tags} onChange={(e) => setForm({ ...form, tags: e.target.value })} />
           <div className="grid gap-3 md:grid-cols-3">
-            <select name="visibility" className="input" value={form.visibility}
-              onChange={(e) => setForm({ ...form, visibility: e.target.value })}>
-              <option value="private">خاص لي فقط</option>
-              <option value="office">خاص للمكتب</option>
-              <option value="public">عام للجميع</option>
-            </select>
+            {developerMode ? (
+              <>
+                <input type="hidden" name="visibility" value="public" />
+                <div className="input flex items-center">عام للمكتبة</div>
+              </>
+            ) : (
+              <select name="visibility" className="input" value={form.visibility}
+                onChange={(e) => setForm({ ...form, visibility: e.target.value })}>
+                <option value="private">خاص لي فقط</option>
+                <option value="office">خاص للمكتب</option>
+                <option value="public">عام للجميع</option>
+              </select>
+            )}
             <input name="file" type="file" className="input md:col-span-2"
               accept=".pdf,.png,.jpg,.jpeg,.docx,.xlsx,.md,.txt" />
           </div>
+          {developerMode ? <div className="text-xs text-muted">يُحفظ الملف كمورد عام في Vercel Blob ويظهر ضمن مصادر المكتبة. الحد المباشر 4MB؛ للملفات الأكبر استخدم رابط المصدر الخارجي. لا ترفع مستندات سرية من هذا القسم.</div> : null}
           <input name="external_url" className="input" dir="ltr"
             placeholder="رابط مصدر خارجي (اختياري) https://…"
             value={form.external_url} onChange={(e) => setForm({ ...form, external_url: e.target.value })} />
