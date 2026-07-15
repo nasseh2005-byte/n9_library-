@@ -1,0 +1,23 @@
+{
+  "synced_at": "2026-07-15T02:53:03.855Z",
+  "total": 8038,
+  "counts": {
+    "base": 7050,
+    "tourism": 21,
+    "education": 142,
+    "judgments": 14,
+    "aviation": 246,
+    "aviationDiscovered": 246,
+    "realEstate": 35,
+    "transport": 1,
+    "experts": 529,
+    "health": 0,
+    "justice": 0
+  },
+  "notes": {
+    "health": "صفحة وزارة الصحة تحيل إلى هيئة الخبراء؛ لم تُنشأ بطاقات صفحات بلا ملفات.",
+    "justice": "API وزارة العدل محمي بجدار WAF؛ المصدر موثق ولا تُضاف روابط غير قابلة للتحقق.",
+    "experts": "أنشئ PDF عند الطلب من النص الرسمي مع إبقاء رابط الأصل."
+  },
+  "failures": []
+}

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function PostForm() {
-  const [form, setForm] = useState({ title: "", tags: "", content: "" });
+  const [form, setForm] = useState({ title: "", tags: "", category: "", kind: "", content: "" });
   const [files, setFiles] = useState([]);
   const [msg, setMsg] = useState("");
   const router = useRouter();
@@ -18,7 +18,7 @@ export default function PostForm() {
     const j = await res.json().catch(() => ({}));
     if (res.ok) {
       setMsg("تم النشر ✓");
-      setForm({ title: "", tags: "", content: "" });
+      setForm({ title: "", tags: "", category: "", kind: "", content: "" });
       setFiles([]);
       router.refresh();
     } else setMsg(j.error || "فشل النشر");
@@ -31,6 +31,10 @@ export default function PostForm() {
         onChange={(e) => setForm({ ...form, title: e.target.value })} required />
       <input className="input" placeholder="تاغات مفصولة بفواصل: قانون, عقارات, شرح"
         value={form.tags} onChange={(e) => setForm({ ...form, tags: e.target.value })} />
+      <div className="grid gap-3 md:grid-cols-2">
+        <input className="input" placeholder="التصنيف المخصص" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} />
+        <input className="input" placeholder="النوع: تدوينة، سابقة قضائية، تعليق…" value={form.kind} onChange={(e) => setForm({ ...form, kind: e.target.value })} />
+      </div>
       <textarea className="input min-h-40" placeholder="المحتوى (يدعم Markdown)"
         value={form.content} onChange={(e) => setForm({ ...form, content: e.target.value })} required />
       <label className="grid gap-1 text-sm text-muted">

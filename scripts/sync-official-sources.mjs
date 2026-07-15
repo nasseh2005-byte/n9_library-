@@ -221,8 +221,11 @@ for (const item of links(bfcHtml, PAGES.bfc).filter((x) => /\/RulesandRegulation
   });
 }
 
-await fs.writeFile(path.join(process.cwd(), "data", "official-docs.json"), JSON.stringify(docs, null, 2), "utf8");
-console.log(`تمت مزامنة ${docs.length} وثيقة رسمية: ${bogCrawl.filesAdded} حكمًا/مستندًا فرديًا من ${bogCrawl.foldersVisited} مجلدًا، و${bfcIndex} من اللجان المصرفية.`);
+// صفحات الفهارس ليست وثائق. لا ندخل أي سجل في المكتبة ما لم يكن له
+// ملف PDF مباشر؛ تبقى صفحات الفهرسة معروضة في قسم المصادر فقط.
+const pdfDocs = docs.filter((doc) => Boolean(doc.pdf_source));
+await fs.writeFile(path.join(process.cwd(), "data", "official-docs.json"), JSON.stringify(pdfDocs, null, 2), "utf8");
+console.log(`تمت مزامنة ${pdfDocs.length} وثيقة PDF رسمية: ${bogCrawl.filesAdded} حكمًا/مستندًا فرديًا من ${bogCrawl.foldersVisited} مجلدًا، و${bfcIndex} من اللجان المصرفية.`);
 if (bogCrawl.failures.length) {
   console.error(`تعذر سحب ${bogCrawl.failures.length} مجلدًا بعد إعادة المحاولة:`);
   for (const failure of bogCrawl.failures) console.error(`- ${failure}`);

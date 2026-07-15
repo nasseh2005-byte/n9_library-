@@ -80,6 +80,7 @@ export default function SourcesPage({ searchParams }) {
               <div className="mt-3 flex flex-wrap gap-2">
                 <Link href={`/doc/${doc.id}`} className="btn-ghost text-xs">التفاصيل</Link>
                 {doc.pdf_source ? <a href={`/api/pdf?u=${encodeURIComponent(doc.pdf_source)}&download=1&filename=${encodeURIComponent(doc.title_ar)}`} className="btn-primary text-xs">تنزيل PDF</a> : null}
+                {doc.generated_pdf ? <a href={`/api/generated-pdf?id=${encodeURIComponent(doc.id)}&download=1`} className="btn-primary text-xs">تنزيل PDF</a> : null}
                 <a href={doc.source_page} target="_blank" rel="noopener noreferrer" className="btn-ghost text-xs">المصدر ↗</a>
               </div>
             </article>

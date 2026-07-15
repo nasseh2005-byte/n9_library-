@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDoc } from "@/lib/data";
 import PdfViewer from "@/components/PdfViewer";
+import FavoriteButton from "@/components/FavoriteButton";
 
 export async function generateMetadata({ params }) {
   const doc = getDoc(params.id);
@@ -16,6 +17,7 @@ export default function DocPage({ params }) {
   const doc = getDoc(params.id);
   if (!doc) notFound();
   const isValid = doc.external || (String(doc.valid).includes("سارية") && !String(doc.valid).includes("غير"));
+  const pdfUrl = doc.generated_pdf ? `/api/generated-pdf?id=${encodeURIComponent(doc.id)}` : doc.pdf_source ? `/api/pdf?u=${encodeURIComponent(doc.pdf_source)}` : "";
 
   return (
     <div className="grid gap-6">
@@ -69,22 +71,24 @@ export default function DocPage({ params }) {
         </div>
 
         <div className="mt-6 flex flex-wrap gap-3">
-          {doc.pdf_source ? (
+          {pdfUrl ? (
             <>
-              <a href={`/api/pdf?u=${encodeURIComponent(doc.pdf_source)}`} target="_blank" rel="noopener noreferrer" className="btn-ghost">
+              <a href={pdfUrl} target="_blank" rel="noopener noreferrer" className="btn-ghost">
                 عرض PDF
               </a>
-              <a href={`/api/pdf?u=${encodeURIComponent(doc.pdf_source)}&download=1&filename=${encodeURIComponent(doc.title_ar)}`} className="btn-primary">
+              <a href={`${pdfUrl}&download=1&filename=${encodeURIComponent(doc.title_ar)}`} className="btn-primary">
                 تنزيل PDF
               </a>
             </>
           ) : null}
+          <FavoriteButton id={doc.id} />
           {doc.source_page ? (
             <a href={doc.source_page} target="_blank" rel="noopener noreferrer" className="btn-ghost">
               صفحة الوثيقة في المصدر الأصلي
             </a>
           ) : null}
         </div>
+        {doc.generated_pdf ? <p className="mt-3 text-xs text-muted">PDF مولّد من النص المنشور في المصدر الرسمي، مع إبقاء رابط الأصل للمراجعة والاستشهاد.</p> : null}
       </div>
 
       {doc.timeline?.items?.length > 1 ? (
@@ -139,7 +143,7 @@ export default function DocPage({ params }) {
         </div>
       ) : null}
 
-      {doc.pdf_source ? <PdfViewer src={doc.pdf_source} title={doc.title_ar} /> : null}
+      {pdfUrl ? <PdfViewer src={pdfUrl} title={doc.title_ar} /> : null}
 
       {doc.siblings?.length ? (
         <div className="card p-6">

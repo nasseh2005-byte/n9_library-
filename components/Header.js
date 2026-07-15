@@ -12,6 +12,9 @@ const primary = [
   { href: "/stats", label: "الإحصائيات", icon: "chart" },
 ];
 const secondary = [
+  { href: "/favorites", label: "مفضلاتي", icon: "star" },
+  { href: "/account", label: "حسابي الشخصي", icon: "home" },
+  { href: "/suggestions", label: "الاقتراحات", icon: "edit" },
   { href: "/vault", label: "الخزنة الخاصة", icon: "folder" },
   { href: "/cases", label: "ملفات الحالات", icon: "file" },
   { href: "/replies", label: "الردود على القضاة", icon: "reply" },
@@ -60,6 +63,7 @@ export default function Header() {
 
         <div className="hidden items-center gap-2 lg:flex">
           <ThemeToggle />
+          <Link href="/account" className="btn-ghost text-xs">حسابي</Link>
           <Link href="/login" className="btn-ghost text-xs">دخول الأعضاء</Link>
         </div>
 
@@ -75,6 +79,7 @@ export default function Header() {
               ))}
               <div className="my-1 border-t" style={{ borderColor: "var(--line)" }} />
               <Link href="/login" className="rounded-lg px-3 py-2 text-sm text-gold-c">دخول الأعضاء</Link>
+              <Link href="/account" className="rounded-lg px-3 py-2 text-sm text-gold-c">حسابي الشخصي</Link>
             </div>
           </details>
         </div>

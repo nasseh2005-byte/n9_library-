@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function UploadForm({ defaultOpen = false, developerMode = false } = {}) {
-  const [form, setForm] = useState({ title: "", desc: "", tags: "", visibility: developerMode ? "public" : "private", external_url: "" });
+  const [form, setForm] = useState({ title: "", desc: "", tags: "", category: "", type: "", visibility: developerMode ? "public" : "private", external_url: "" });
   const [analysis, setAnalysis] = useState(null);
   const [msg, setMsg] = useState("");
   const [open, setOpen] = useState(defaultOpen);
@@ -28,7 +28,7 @@ export default function UploadForm({ defaultOpen = false, developerMode = false 
     if (res.ok) {
       setMsg(`تم ✓ — صُنف تلقائيًا: ${j.category} (${j.type})`);
       e.target.reset();
-      setForm({ title: "", desc: "", tags: "", visibility: developerMode ? "public" : "private", external_url: "" });
+      setForm({ title: "", desc: "", tags: "", category: "", type: "", visibility: developerMode ? "public" : "private", external_url: "" });
       setAnalysis(null);
       router.refresh();
     } else setMsg(j.error || "فشل الحفظ");
@@ -63,6 +63,10 @@ export default function UploadForm({ defaultOpen = false, developerMode = false 
           )}
           <input name="tags" className="input" placeholder="تاغات إضافية يدوية (اختياري، مفصولة بفواصل)"
             value={form.tags} onChange={(e) => setForm({ ...form, tags: e.target.value })} />
+          <div className="grid gap-3 md:grid-cols-2">
+            <input name="category" className="input" placeholder="تصنيف مخصص (اختياري)" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} />
+            <input name="type" className="input" placeholder="نوع الوثيقة: سابقة قضائية، مذكرة، مدونة…" value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })} />
+          </div>
           <div className="grid gap-3 md:grid-cols-3">
             {developerMode ? (
               <>

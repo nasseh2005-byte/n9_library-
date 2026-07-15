@@ -31,6 +31,12 @@
   --sundus-soft: #18392F;
   color-scheme: dark;
 }
+:root[data-palette="sundus"] { --gold: #94722C; --gold-strong: #B58A2B; --sundus: #2F7657; --sundus-soft: #E5F2EA; }
+:root[data-palette="indigo"] { --gold: #AA842D; --gold-strong: #C9A647; --sundus: #405A86; --sundus-soft: #E8EDF6; }
+:root[data-palette="sand"] { --gold: #9B6E18; --gold-strong: #C08E28; --sundus: #7C8A68; --sundus-soft: #F3EFE2; }
+:root[data-theme="dark"][data-palette="sundus"] { --sundus: #72B394; --sundus-soft: #17392D; }
+:root[data-theme="dark"][data-palette="indigo"] { --sundus: #829BD0; --sundus-soft: #17243F; }
+:root[data-theme="dark"][data-palette="sand"] { --sundus: #B9AD82; --sundus-soft: #352E1D; }
 
 body {
   background:
@@ -39,6 +45,8 @@ body {
     var(--bg);
   color: var(--text);
 }
+:root[data-font="naskh"] body { font-family: var(--font-amiri), serif; font-size: 17px; }
+:root[data-font="large"] body { font-size: 18px; line-height: 1.8; }
 html { background-color: #F7F9F7; }
 html[data-theme="dark"] { background-color: #071126; }
 

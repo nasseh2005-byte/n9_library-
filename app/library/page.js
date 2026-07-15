@@ -7,11 +7,11 @@ export const metadata = { title: "المكتبة — N9 LIBRARY" };
 
 export default function Library({ searchParams }) {
   const meta = getMeta();
-  const { q = "", cat = "", year = "", valid = "", ins = "", tag = "", sort = "new", page = "1" } =
+  const { q = "", cat = "", year = "", valid = "", ins = "", tag = "", mode = "broad", sort = "new", page = "1" } =
     searchParams || {};
-  const res = filterDocs({ q, cat, year, valid, ins, tag, sort, page });
+  const res = filterDocs({ q, cat, year, valid, ins, tag, mode, sort, page });
   const active = Object.entries({ q, cat, year, valid, ins, tag }).filter(([, v]) => v);
-  const params = Object.fromEntries([...active, ["sort", sort]].filter(([, v]) => v && v !== "new"));
+  const params = Object.fromEntries([...active, ["mode", mode], ["sort", sort]].filter(([, v]) => v && v !== "new" && v !== "broad"));
 
   // رابط يزيل فلترا واحدا مع بقاء البقية
   const removeLink = (key) => {
@@ -28,12 +28,16 @@ export default function Library({ searchParams }) {
         <span className="text-sm text-slate-400">{meta.total.toLocaleString("ar-SA")} وثيقة</span>
       </div>
 
-      <form className="card grid gap-3 p-4 md:grid-cols-7">
+      <form className="card grid gap-3 p-4 md:grid-cols-8">
         <input name="q" defaultValue={q} className="input md:col-span-2"
           placeholder="بحث بالعنوان أو الرقم (يتجاهل الهمزات والتشكيل)…" />
         <select name="cat" defaultValue={cat} className="input">
           <option value="">كل التصنيفات</option>
           {meta.categories.map((c) => <option key={c.name} value={c.name}>{c.name} ({c.count})</option>)}
+        </select>
+        <select name="mode" defaultValue={mode} className="input">
+          <option value="broad">بحث شامل</option>
+          <option value="exact">بحث دقيق</option>
         </select>
         <select name="ins" defaultValue={ins} className="input">
           <option value="">كل الأدوات</option>

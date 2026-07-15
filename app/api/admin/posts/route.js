@@ -13,6 +13,8 @@ export async function POST(req) {
   const title = String(form.get("title") || "").trim();
   const tags = String(form.get("tags") || "");
   const content = String(form.get("content") || "").trim();
+  const category = String(form.get("category") || "").trim().slice(0, 100);
+  const kind = String(form.get("kind") || "").trim().slice(0, 100);
   if (!title || !content) {
     return NextResponse.json({ error: "العنوان والمحتوى مطلوبان" }, { status: 400 });
   }
@@ -22,7 +24,7 @@ export async function POST(req) {
   try {
     const attachments = await savePublicAttachments(form.getAll("attachments"), slug);
     const post = {
-      slug, title, date, author: "NASSEH ZAHER ALNAMAN", tags: tagList,
+      slug, title, date, author: "NASSEH ZAHER ALNAMAN", tags: tagList, category, kind,
       excerpt: content.slice(0, 220), content, attachments,
     };
     await savePost(post);

@@ -9,12 +9,13 @@ function FindInner() {
   const [q, setQ] = useState(sp.get("q") || "");
   const [d, setD] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [mode, setMode] = useState("broad");
 
   async function run(e) {
     e?.preventDefault();
     if (!q.trim()) return;
     setLoading(true);
-    const r = await fetch(`/api/search-all?q=${encodeURIComponent(q)}`);
+    const r = await fetch(`/api/search-all?q=${encodeURIComponent(q)}&mode=${mode}`);
     setD(await r.json());
     setLoading(false);
   }
@@ -38,6 +39,7 @@ function FindInner() {
         <input className="input" value={q} onChange={(e) => setQ(e.target.value)} placeholder="ابحث في كل شيء…" autoFocus />
         <button className="btn-primary shrink-0" disabled={loading}>{loading ? "…" : "بحث"}</button>
       </form>
+      <div className="flex gap-2"><button onClick={() => setMode("broad")} className={mode === "broad" ? "btn-primary" : "btn-ghost"}>بحث شامل</button><button onClick={() => setMode("exact")} className={mode === "exact" ? "btn-primary" : "btn-ghost"}>بحث دقيق</button></div>
 
       {d && (
         <div className="grid gap-4">
@@ -57,6 +59,7 @@ function FindInner() {
           )} />
           {!d.member && <div className="text-center text-xs text-faint"><Link href="/login" className="text-gold-c underline">سجّل دخولك</Link> ليشمل البحث خزنتك وحالاتك وردودك</div>}
           {Object.values(g).every((x) => !x?.length) && <div className="card p-8 text-center text-muted">لا نتائج</div>}
+          {Object.values(g).every((x) => !x?.length) && <a href={d.webPdfUrl} target="_blank" rel="noopener noreferrer" className="btn-primary mx-auto">بحث عام عن PDF في المواقع الحكومية</a>}
         </div>
       )}
     </div>

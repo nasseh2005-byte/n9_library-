@@ -19,6 +19,8 @@ export default async function BlogPage() {
             </div>
             <p className="mt-2 text-sm leading-7 text-slate-400">{p.excerpt}…</p>
             <div className="mt-3 flex flex-wrap items-center gap-2">
+              {p.kind ? <span className="tag-pill border-gold">{p.kind}</span> : null}
+              {p.category ? <span className="tag-pill">{p.category}</span> : null}
               {p.tags.map((t) => <span key={t} className="tag-pill">{t}</span>)}
               <span className="mr-auto text-xs text-gold">{p.author}</span>
               {p.attachments?.length ? <span className="text-xs text-gold-c">{p.attachments.length} مرفق</span> : null}

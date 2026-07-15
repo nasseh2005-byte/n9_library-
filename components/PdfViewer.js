@@ -4,8 +4,8 @@ import { useState } from "react";
 // عارض PDF عبر البروكسي الداخلي (يتجاوز منع NCAR للتضمين) مع بديل احتياطي
 export default function PdfViewer({ src, title }) {
   const [failed, setFailed] = useState(false);
-  const proxied = `/api/pdf?u=${encodeURIComponent(src)}`;
-  const download = `${proxied}&download=1&filename=${encodeURIComponent(title || "document")}`;
+  const proxied = String(src || "").startsWith("/api/") ? src : `/api/pdf?u=${encodeURIComponent(src)}`;
+  const download = `${proxied}${proxied.includes("?") ? "&" : "?"}download=1&filename=${encodeURIComponent(title || "document")}`;
   return (
     <div className="card overflow-hidden">
       <div className="flex items-center justify-between border-b border-line px-4 py-2 text-sm text-slate-400">

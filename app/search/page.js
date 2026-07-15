@@ -10,11 +10,12 @@ function SearchInner() {
   const [cat, setCat] = useState("");
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [mode, setMode] = useState("broad");
 
   async function run(query) {
     if (!query.trim()) return;
     setLoading(true);
-    const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
+    const res = await fetch(`/api/search?q=${encodeURIComponent(query)}&mode=${mode}`);
     setData(await res.json());
     setLoading(false);
   }
@@ -41,6 +42,7 @@ function SearchInner() {
           {loading ? "يبحث…" : "بحث"}
         </button>
       </form>
+      <div className="flex gap-2"><button onClick={() => setMode("broad")} className={mode === "broad" ? "btn-primary" : "btn-ghost"}>بحث شامل</button><button onClick={() => setMode("exact")} className={mode === "exact" ? "btn-primary" : "btn-ghost"}>بحث دقيق</button></div>
 
       {data && data.results.length > 0 && (
         <div className="flex flex-wrap items-center gap-2 text-sm">
@@ -103,6 +105,7 @@ function SearchInner() {
               لا نتائج — جرّب كلمات أخرى أو <Link href="/library" className="text-saudi-light">تصفح المكتبة</Link>
             </div>
           )}
+          {filtered.length === 0 && data.webPdfUrl ? <a href={data.webPdfUrl} target="_blank" rel="noopener noreferrer" className="btn-primary mx-auto">بحث عام عن PDF حكومي</a> : null}
         </div>
       )}
     </div>
