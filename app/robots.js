@@ -1,4 +1,4 @@
-const BASE = process.env.SITE_URL || "https://n9library.vercel.app";
+const BASE = process.env.SITE_URL || "https://n9-library.vercel.app";
 
 export default function robots() {
   return {

@@ -3,6 +3,7 @@ import { getMember } from "@/lib/members";
 import { readAudit } from "@/lib/audit";
 import Icon from "@/components/Icon";
 import DevConsole from "./DevConsole";
+import UploadForm from "@/app/vault/UploadForm";
 
 export const metadata = { title: "لوحة المطوّر — N9 LIBRARY" };
 export const dynamic = "force-dynamic";
@@ -29,6 +30,7 @@ export default function DeveloperPage() {
         <h1 className="font-serif text-2xl font-bold">لوحة المطوّر</h1>
       </div>
       <DevConsole />
+      <UploadForm defaultOpen developerMode />
 
       <div className="card p-6">
         <div className="mb-3 flex items-center gap-2 font-bold"><Icon name="clock" size={18} /> سجل التدقيق (كل المكاتب)</div>

@@ -1,0 +1,887 @@
+[
+  {
+    "id": "ext-bog-system-bog",
+    "title_ar": "نظام ديوان المظالم",
+    "category": "أنظمة ديوان المظالم",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialSystems/Pages/JudicalSystemsContent.aspx?SystemTitle=%D9%86%D8%B8%D8%A7%D9%85%20%D8%AF%D9%8A%D9%88%D8%A7%D9%86%20%D8%A7%D9%84%D9%85%D8%B8%D8%A7%D9%84%D9%85&System=BOG",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "أنظمة قضائية",
+      "مصدر رسمي"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-system-litigation",
+    "title_ar": "نظام المرافعات أمام ديوان المظالم",
+    "category": "أنظمة ديوان المظالم",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialSystems/Pages/JudicalSystemsContent.aspx?SystemTitle=%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D9%85%D8%B1%D8%A7%D9%81%D8%B9%D8%A7%D8%AA%20%D8%A3%D9%85%D8%A7%D9%85%20%D8%AF%D9%8A%D9%88%D8%A7%D9%86%20%D8%A7%D9%84%D9%85%D8%B8%D8%A7%D9%84%D9%85&System=Litigation",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "أنظمة قضائية",
+      "مصدر رسمي"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-system-judicial",
+    "title_ar": "نظام القضاء",
+    "category": "أنظمة ديوان المظالم",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialSystems/Pages/JudicalSystemsContent.aspx?SystemTitle=%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D9%82%D8%B6%D8%A7%D8%A1&System=Judicial",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "أنظمة قضائية",
+      "مصدر رسمي"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-system-sharialitigation",
+    "title_ar": "نظام المرافعات الشرعية",
+    "category": "أنظمة ديوان المظالم",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialSystems/Pages/JudicalSystemsContent.aspx?SystemTitle=%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D9%85%D8%B1%D8%A7%D9%81%D8%B9%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B4%D8%B1%D8%B9%D9%8A%D8%A9&System=ShariaLitigation",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "أنظمة قضائية",
+      "مصدر رسمي"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-system-arbitration",
+    "title_ar": "نظام التحكيم",
+    "category": "أنظمة ديوان المظالم",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialSystems/Pages/JudicalSystemsContent.aspx?SystemTitle=%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D8%AA%D8%AD%D9%83%D9%8A%D9%85&System=Arbitration",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "أنظمة قضائية",
+      "مصدر رسمي"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-system-advocacy",
+    "title_ar": "نظام المحاماة",
+    "category": "أنظمة ديوان المظالم",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialSystems/Pages/JudicalSystemsContent.aspx?SystemTitle=%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D9%85%D8%A7%D8%A9&System=Advocacy",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "أنظمة قضائية",
+      "مصدر رسمي"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-system-mechanism",
+    "title_ar": "آلية العمل التنفيذية لنظام القضاء ونظام ديوان المظالم",
+    "category": "أنظمة ديوان المظالم",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialSystems/Pages/JudicalSystemsContent.aspx?SystemTitle=%D8%A2%D9%84%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B9%D9%85%D9%84%20%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A%D8%A9%20%D9%84%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D9%82%D8%B6%D8%A7%D8%A1%20%D9%88%D9%86%D8%B8%D8%A7%D9%85%20%D8%AF%D9%8A%D9%88%D8%A7%D9%86%20%D8%A7%D9%84%D9%85%D8%B8%D8%A7%D9%84%D9%85&System=Mechanism",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "أنظمة قضائية",
+      "مصدر رسمي"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-system-execution",
+    "title_ar": "نظام التنفيذ",
+    "category": "أنظمة ديوان المظالم",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialSystems/Pages/JudicalSystemsContent.aspx?SystemTitle=%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0&System=Execution",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "أنظمة قضائية",
+      "مصدر رسمي"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-system-bogexecution",
+    "title_ar": "نظام التنفيذ أمام ديوان المظالم",
+    "category": "أنظمة ديوان المظالم",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialSystems/Pages/JudicalSystemsContent.aspx?SystemTitle=%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%20%D8%A3%D9%85%D8%A7%D9%85%20%D8%AF%D9%8A%D9%88%D8%A7%D9%86%20%D8%A7%D9%84%D9%85%D8%B8%D8%A7%D9%84%D9%85&System=BogExecution",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "أنظمة قضائية",
+      "مصدر رسمي"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-system-evidence",
+    "title_ar": "نظام الإثبات",
+    "category": "أنظمة ديوان المظالم",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialSystems/Pages/JudicalSystemsContent.aspx?SystemTitle=%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D8%A5%D8%AB%D8%A8%D8%A7%D8%AA&System=Evidence",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "أنظمة قضائية",
+      "مصدر رسمي"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-11",
+    "title_ar": "مجموعة الأحكام والمبادئ التجارية للأعوام ١٤٠٨ -١٤٢٣ هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/1408-1423/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-12",
+    "title_ar": "مجموعة الأحكام والمبادئ التجارية للأعوام ١٤٢٤ -١٤٢٧ هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/1424-1427/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-13",
+    "title_ar": "مجموعة الأحكام والمبادئ الإدارية لعام ١٤٢٧ هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/Blog1427/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-14",
+    "title_ar": "مجموعة الأحكام والمبادئ لعام ١٤٢٨ هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/Blog1428/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-15",
+    "title_ar": "مجموعة الأحكام والمبادئ لعام ١٤٢٩ هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/1429/Pages/default1.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-16",
+    "title_ar": "الأحكام والمبادئ لعام ١٤٢٩",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/1429/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-17",
+    "title_ar": "مجموعة الأحكام والمبادئ لعام ١٤٣٠ هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/1430/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-18",
+    "title_ar": "مجموعة الأحكام والمبادئ لعام ١٤٣١ هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/1431/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-19",
+    "title_ar": "مجموعة الأحكام والمبادئ لعام ١٤٣٢ هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/1432/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-20",
+    "title_ar": "السوابق القضائية لأحكام ديوان المظالم الإدارية للأعوام 1402 - 1436 هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/A1402-1436/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-21",
+    "title_ar": "المبادئ والأحكام الإدارية باللغة الصينية",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/chinese/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-22",
+    "title_ar": "المبادئ والأحكام الإدارية باللغة الفرنسية",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/French/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-23",
+    "title_ar": "المبادئ والأحكام القضائية لما قبل عام 1402هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/1402/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-24",
+    "title_ar": "مجموعة الأحكام الإدارية في الملكية الفكرية",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/intellectual-property/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-25",
+    "title_ar": "مجموعة الأحكام الإدارية لعام 1443 هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/1443/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-26",
+    "title_ar": "مجموعة الأحكام الإدارية لعام 1444 هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/1444/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-27",
+    "title_ar": "مجموعة الأحكام الإدارية لعام ١٤٤٠ هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/1440/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-28",
+    "title_ar": "مجموعة الأحكام الإدارية لعام ١٤٤١ هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/1441/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-29",
+    "title_ar": "مجموعة الأحكام الإدارية لعام ١٤٤٢ هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/1442/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-30",
+    "title_ar": "مجموعة الأحكام والمبادئ الإدارية للأعوام ١٤٠٢-١٤٢٦ هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/AA1402-1426/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-31",
+    "title_ar": "مجموعة الأحكام والمبادئ الجزائية للأعوام 1402هـ-1427هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/1402-1427/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-32",
+    "title_ar": "المبادئ التى قررتها المحكمة الادارية العليا",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/PrinciplesBlogs/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-33",
+    "title_ar": "المبادئ التي قررتها المحكمة الإدارية العليا لعام ١٤٤٢ هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/PrinciplesBlogs/1442/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-34",
+    "title_ar": "المبادئ التي قررتها المحكمة الإدارية العليا للأعوام 1439-1440-1441هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/PrinciplesBlogs/1439-1440-1441/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-35",
+    "title_ar": "مجموعة المبادئ التي قررتها المحكمة الإدارية العليا لعام 1443هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/PrinciplesBlogs/1443/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-36",
+    "title_ar": "مجموعة المبادئ التي قررتها المحكمة الإدارية العليا لعام 1444 هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/PrinciplesBlogs/1444/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-37",
+    "title_ar": "المبادئ التى قررتها المحكمة الإدارية العليا",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/PrinciplesBlogs",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-38",
+    "title_ar": "السوابق القضائية لأحكام ديوان المظالم الإدارية الأعوام ١٤٠٢ -١٤٣٦ هـ",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/A1402-1436",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-39",
+    "title_ar": "الأحكام القضائية",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/Pages/JudgmentsDefault.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-40",
+    "title_ar": "مجموعة المبادئ والأحكام الإدارية باللغة الإنجليزية",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/english/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bog-blog-41",
+    "title_ar": "المبادئ والأحكام الإدارية باللغة الفرنسية",
+    "category": "المدونات القضائية",
+    "source_name": "ديوان المظالم",
+    "source_page": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/french/Pages/default.aspx",
+    "pdf_source": "",
+    "tags": [
+      "ديوان المظالم",
+      "مدونات قضائية",
+      "أحكام إدارية"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bfc-1",
+    "title_ar": "قواعد الاختصاص المكاني للجان المنازعات المصرفية ولجان الفصل في المخالفات والمنازعات التمويلية",
+    "category": "قواعد اللجان المصرفية",
+    "source_name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "source_page": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "pdf_source": "https://bfc.gov.sa/ar-sa/RulesandRegulations1/%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%A7%D9%84%D8%A7%D8%AE%D8%AA%D8%B5%D8%A7%D8%B5%20%D8%A7%D9%84%D9%85%D9%83%D8%A7%D9%86%D9%8A.pdf",
+    "tags": [
+      "لجان مصرفية وتمويلية",
+      "مصدر رسمي",
+      "قواعد"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bfc-2",
+    "title_ar": "لائحة إجراءات العمل والتقاضي أمام لجنة النظر في مخالفات أحكام نظام المعلومات الائتمانية",
+    "category": "قواعد اللجان المصرفية",
+    "source_name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "source_page": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "pdf_source": "https://bfc.gov.sa/ar-sa/RulesandRegulations1/%D9%84%D8%A7%D8%A6%D8%AD%D8%A9%20%D8%A5%D8%AC%D8%B1%D8%A7%D8%A1%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B9%D9%85%D9%84%20%D9%88%D8%A7%D9%84%D8%AA%D9%82%D8%A7%D8%B6%D9%8A%20%D8%A3%D9%85%D8%A7%D9%85%20%D9%84%D8%AC%D9%86%D8%A9%20%D8%A7%D9%84%D9%86%D8%B8%D8%B1%20%D9%81%D9%8A%20%D9%85%D8%AE%D8%A7%D9%84%D9%81%D8%A7%D8%AA%20%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A7%D8%A6%D8%AA%D9%85%D8%A7%D9%86%D9%8A%D8%A9.pdf",
+    "tags": [
+      "لجان مصرفية وتمويلية",
+      "مصدر رسمي",
+      "قواعد"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bfc-3",
+    "title_ar": "قواعد عمل لجان الفصل في المخالفات والمنازعات التمويلية",
+    "category": "قواعد اللجان المصرفية",
+    "source_name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "source_page": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "pdf_source": "https://bfc.gov.sa/ar-sa/RulesandRegulations1/%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%B9%D9%85%D9%84%20%D8%A7%D9%84%D9%84%D8%AC%D8%A7%D9%86%20%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%8A%D9%84%D9%8A%D8%A9.pdf",
+    "tags": [
+      "لجان مصرفية وتمويلية",
+      "مصدر رسمي",
+      "قواعد"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bfc-4",
+    "title_ar": "قواعد عمل لجان المنازعات والمخالفات المصرفية",
+    "category": "قواعد اللجان المصرفية",
+    "source_name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "source_page": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "pdf_source": "https://bfc.gov.sa/ar-sa/RulesandRegulations1/%D9%82%D9%88%D8%A7%D8%B9%D8%AF%20%D8%B9%D9%85%D9%84%20%D9%84%D8%AC%D8%A7%D9%86%20%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B2%D8%B9%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D9%85%D8%AE%D8%A7%D9%84%D9%81%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%81%D9%8A%D8%A9.pdf",
+    "tags": [
+      "لجان مصرفية وتمويلية",
+      "مصدر رسمي",
+      "قواعد"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bfc-5",
+    "title_ar": "نظام الإيجار التمويلي",
+    "category": "أنظمة مصرفية وتمويلية",
+    "source_name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "source_page": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "pdf_source": "https://bfc.gov.sa/ar-sa/RulesandRegulations1/%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D8%A5%D9%8A%D8%AC%D8%A7%D8%B1%20%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%8A%D9%84%D9%8A.pdf",
+    "tags": [
+      "لجان مصرفية وتمويلية",
+      "مصدر رسمي",
+      "أنظمة"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bfc-6",
+    "title_ar": "نظام التمويل العقاري",
+    "category": "أنظمة مصرفية وتمويلية",
+    "source_name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "source_page": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "pdf_source": "https://bfc.gov.sa/ar-sa/RulesandRegulations1/%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%8A%D9%84%20%D8%A7%D9%84%D8%B9%D9%82%D8%A7%D8%B1%D9%8A.pdf",
+    "tags": [
+      "لجان مصرفية وتمويلية",
+      "مصدر رسمي",
+      "أنظمة"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bfc-7",
+    "title_ar": "نظام المرافعات الشرعية",
+    "category": "أنظمة مصرفية وتمويلية",
+    "source_name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "source_page": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "pdf_source": "https://bfc.gov.sa/ar-sa/RulesandRegulations1/%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D9%85%D8%B1%D8%A7%D9%81%D8%B9%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B4%D8%B1%D8%B9%D9%8A%D8%A9.pdf",
+    "tags": [
+      "لجان مصرفية وتمويلية",
+      "مصدر رسمي",
+      "أنظمة"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bfc-8",
+    "title_ar": "نظام المعلومات الائتمانية",
+    "category": "أنظمة مصرفية وتمويلية",
+    "source_name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "source_page": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "pdf_source": "https://bfc.gov.sa/ar-sa/RulesandRegulations1/%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A7%D8%A6%D8%AA%D9%85%D8%A7%D9%86%D9%8A%D8%A9.pdf",
+    "tags": [
+      "لجان مصرفية وتمويلية",
+      "مصدر رسمي",
+      "أنظمة"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bfc-9",
+    "title_ar": "نظام مراقبة البنوك",
+    "category": "أنظمة مصرفية وتمويلية",
+    "source_name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "source_page": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "pdf_source": "https://bfc.gov.sa/ar-sa/RulesandRegulations1/%D9%86%D8%B8%D8%A7%D9%85%20%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%A9%20%D8%A7%D9%84%D8%A8%D9%86%D9%88%D9%83.pdf",
+    "tags": [
+      "لجان مصرفية وتمويلية",
+      "مصدر رسمي",
+      "أنظمة"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bfc-10",
+    "title_ar": "نظام مراقبة شركات التمويل",
+    "category": "أنظمة مصرفية وتمويلية",
+    "source_name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "source_page": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "pdf_source": "https://bfc.gov.sa/ar-sa/RulesandRegulations1/%D9%86%D8%B8%D8%A7%D9%85%20%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%A9%20%D8%B4%D8%B1%D9%83%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%8A%D9%84.pdf",
+    "tags": [
+      "لجان مصرفية وتمويلية",
+      "مصدر رسمي",
+      "أنظمة"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bfc-11",
+    "title_ar": "نظام الإجراءات الجزائية",
+    "category": "أنظمة مصرفية وتمويلية",
+    "source_name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "source_page": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "pdf_source": "https://bfc.gov.sa/ar-sa/RulesandRegulations1/%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D8%A5%D8%AC%D8%B1%D8%A7%D8%A1%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AC%D8%B2%D8%A7%D8%A6%D9%8A%D8%A9.pdf",
+    "tags": [
+      "لجان مصرفية وتمويلية",
+      "مصدر رسمي",
+      "أنظمة"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bfc-12",
+    "title_ar": "مدونة المبادىء القضائية في المنازعات المصرفية والتمويلية",
+    "category": "أنظمة مصرفية وتمويلية",
+    "source_name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "source_page": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "pdf_source": "https://bfc.gov.sa/ar-sa/RulesandRegulations1/%D9%85%D8%AF%D9%88%D9%86%D8%A9%20%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%AF%D9%89%D8%A1%20%D8%A7%D9%84%D9%82%D8%B6%D8%A7%D8%A6%D9%8A%D8%A9.pdf",
+    "tags": [
+      "لجان مصرفية وتمويلية",
+      "مصدر رسمي",
+      "أنظمة"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bfc-13",
+    "title_ar": "اللائحة التنفيذية لنظام الإجراءات الجزائية",
+    "category": "لوائح مصرفية وتمويلية",
+    "source_name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "source_page": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "pdf_source": "https://bfc.gov.sa/ar-sa/RulesandRegulations1/%D8%A7%D9%84%D9%84%D8%A7%D8%A6%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A%D8%A9%20%D9%84%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D8%A5%D8%AC%D8%B1%D8%A7%D8%A1%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AC%D8%B2%D8%A7%D8%A6%D9%8A%D8%A9.pdf",
+    "tags": [
+      "لجان مصرفية وتمويلية",
+      "مصدر رسمي",
+      "لوائح"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bfc-14",
+    "title_ar": "اللائحة التنفيذية لنظام الإيجار التمويلي",
+    "category": "لوائح مصرفية وتمويلية",
+    "source_name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "source_page": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "pdf_source": "https://bfc.gov.sa/ar-sa/RulesandRegulations1/%D8%A7%D9%84%D9%84%D8%A7%D8%A6%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A%D8%A9%20%D9%84%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D8%A5%D9%8A%D8%AC%D8%A7%D8%B1%20%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%8A%D9%84%D9%8A.pdf",
+    "tags": [
+      "لجان مصرفية وتمويلية",
+      "مصدر رسمي",
+      "لوائح"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bfc-15",
+    "title_ar": "اللائحة التنفيذية لنظام التمويل العقاري",
+    "category": "لوائح مصرفية وتمويلية",
+    "source_name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "source_page": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "pdf_source": "https://bfc.gov.sa/ar-sa/RulesandRegulations1/%D8%A7%D9%84%D9%84%D8%A7%D8%A6%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A%D8%A9%20%D9%84%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%8A%D9%84%20%D8%A7%D9%84%D8%B9%D9%82%D8%A7%D8%B1%D9%8A.pdf",
+    "tags": [
+      "لجان مصرفية وتمويلية",
+      "مصدر رسمي",
+      "لوائح"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bfc-16",
+    "title_ar": "اللائحة التنفيذية لنظام المرافعات الشرعية",
+    "category": "لوائح مصرفية وتمويلية",
+    "source_name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "source_page": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "pdf_source": "https://bfc.gov.sa/ar-sa/RulesandRegulations1/%D8%A7%D9%84%D9%84%D8%A7%D8%A6%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A%D8%A9%20%D9%84%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D9%85%D8%B1%D8%A7%D9%81%D8%B9%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B4%D8%B1%D8%B9%D9%8A%D8%A9.pdf",
+    "tags": [
+      "لجان مصرفية وتمويلية",
+      "مصدر رسمي",
+      "لوائح"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bfc-17",
+    "title_ar": "اللائحة التنفيذية لنظام المعلومات الائتمانية",
+    "category": "لوائح مصرفية وتمويلية",
+    "source_name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "source_page": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "pdf_source": "https://bfc.gov.sa/ar-sa/RulesandRegulations1/%D8%A7%D9%84%D9%84%D8%A7%D8%A6%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A%D8%A9%20%D9%84%D9%86%D8%B8%D8%A7%D9%85%20%D8%A7%D9%84%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D8%A7%D8%A6%D8%AA%D9%85%D8%A7%D9%86%D9%8A%D8%A9.pdf",
+    "tags": [
+      "لجان مصرفية وتمويلية",
+      "مصدر رسمي",
+      "لوائح"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  },
+  {
+    "id": "ext-bfc-18",
+    "title_ar": "اللائحة التنفيذية لنظام مراقبة شركات التمويل",
+    "category": "لوائح مصرفية وتمويلية",
+    "source_name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "source_page": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "pdf_source": "https://bfc.gov.sa/ar-sa/RulesandRegulations1/%D8%A7%D9%84%D9%84%D8%A7%D8%A6%D8%AD%D8%A9%20%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A%D8%A9%20%D9%84%D9%86%D8%B8%D8%A7%D9%85%20%D9%85%D8%B1%D8%A7%D9%82%D8%A8%D8%A9%20%D8%B4%D8%B1%D9%83%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%85%D9%88%D9%8A%D9%84.pdf",
+    "tags": [
+      "لجان مصرفية وتمويلية",
+      "مصدر رسمي",
+      "لوائح"
+    ],
+    "valid": "المصدر الرسمي",
+    "office": "المكتب الرئيسي"
+  }
+]

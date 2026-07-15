@@ -7,8 +7,8 @@ export default function Footer() {
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 md:grid-cols-3">
         <div>
           <div className="flex items-center gap-2">
-            <span className="rounded-md bg-white p-1 ring-1 ring-gold/40">
-              <Image src="/n9-logo.png" alt="N9" width={44} height={20} className="h-5 w-auto" />
+            <span className="overflow-hidden rounded-md bg-white p-1 ring-1 ring-gold/40">
+              <Image src="/n9-library-logo.png" alt="N9 Library" width={44} height={44} className="h-10 w-10 rounded-md object-cover" />
             </span>
             <span className="font-serif font-bold" style={{ color: "var(--text)" }}>N9 LIBRARY</span>
           </div>
@@ -38,6 +38,7 @@ export default function Footer() {
           <div className="mb-2 font-semibold text-gold-c">روابط وتواصل</div>
           <div className="grid gap-1.5">
             <Link href="/library" className="text-muted hover:text-gold-c">تصفح المكتبة</Link>
+            <Link href="/sources" className="text-muted hover:text-gold-c">المصادر الرسمية</Link>
             <Link href="/assistant" className="text-muted hover:text-gold-c">المساعد القانوني</Link>
             <Link href="/about" className="text-muted hover:text-gold-c">حول المنصة</Link>
             <a href="mailto:NASSEH2005@GMAIL.COM" className="text-gold-c" dir="ltr">NASSEH2005@GMAIL.COM</a>

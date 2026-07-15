@@ -8,25 +8,43 @@ export default function Hub() {
   const meta = getMeta();
   return (
     <div className="grid gap-12 py-6">
-      <section className="text-center">
-        <div className="mx-auto flex w-fit items-center gap-5">
-          <span className="rounded-xl bg-white p-2 shadow-xl ring-2 ring-gold/50">
-            <Image src="/n9-logo.png" alt="N9" width={96} height={44} priority className="h-11 w-auto" />
-          </span>
-          <div className="text-right">
-            <h1 className="hero-title text-5xl font-bold md:text-6xl">N9 LIBRARY</h1>
-            <div className="mt-1 text-sm tracking-widest text-muted">المكتبة القانونية الرقمية</div>
+      <section className="source-hero card overflow-hidden p-7 md:p-10">
+        <div className="relative grid items-center gap-8 md:grid-cols-[1fr_240px]">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-saudi/20 bg-white/75 px-3 py-1 text-xs font-semibold text-saudi-dark">
+              <Icon name="shield" size={14} /> مكتبة قانونية سعودية متعددة المصادر
+            </div>
+            <h1 className="hero-title mt-5 text-5xl font-bold md:text-7xl">N9 LIBRARY</h1>
+            <div className="mt-2 text-lg font-semibold text-gold-dark">المكتبة القانونية الرقمية</div>
+            <p className="mt-5 max-w-2xl leading-9 text-muted">
+              وصول موحّد إلى الأنظمة واللوائح والمدونات القضائية والمراجع المهنية، مستند إلى الأرشيف الوطني السعودي وديوان المظالم والجهات الرسمية، مع رابط المصدر وتنزيل الوثيقة.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="/library" className="btn-primary px-6 py-3">تصفح المكتبة</Link>
+              <Link href="/sources" className="btn-ghost px-6 py-3">المصادر الرسمية</Link>
+            </div>
+          </div>
+          <div className="mx-auto overflow-hidden rounded-[2rem] bg-white p-2 shadow-xl ring-1 ring-gold/25">
+            <Image src="/n9-library-logo.png" alt="شعار N9 Library" width={230} height={230} priority className="h-auto w-full scale-[1.18] rounded-[1.5rem]" />
           </div>
         </div>
-        <div className="mx-auto mt-4 h-0.5 w-40 rounded-full"
-          style={{ background: "linear-gradient(90deg, transparent, #C9A227, transparent)" }} />
-        <p className="mx-auto mt-5 max-w-2xl leading-9 text-muted">
-          منصة قانونية شاملة — بحث ذكي بالمحتوى، مساعد قانوني مدموج، خزنة خاصة للمكاتب،
-          وملفات حالات تعمل فعليًا. ابدأ من البوابة السعودية.
-        </p>
       </section>
 
       <PartnerBar />
+
+      <section className="grid gap-4 md:grid-cols-3">
+        {[
+          ["shield", "مصادر رسمية", "الأرشيف الوطني السعودي وديوان المظالم واللجان المصرفية", "/sources"],
+          ["book", "7 آلاف+ مرجع", "فهرس موحّد للوثائق الرسمية والمراجع المضافة للمكتب الرئيسي", "/library"],
+          ["folder", "تزويد مستمر", "رفع ملفات المطور وفهرسة المصادر الجديدة داخل المنصة", "/developer"],
+        ].map(([icon, title, desc, href]) => (
+          <Link key={href} href={href} className="card source-card p-5">
+            <span className="grid h-10 w-10 place-items-center rounded-xl bg-saudi/10 text-saudi"><Icon name={icon} size={20} /></span>
+            <h2 className="mt-3 text-lg font-bold">{title}</h2>
+            <p className="mt-1 text-sm leading-7 text-muted">{desc}</p>
+          </Link>
+        ))}
+      </section>
 
       {/* البوابة السعودية - بطاقة رئيسية بارزة */}
       <section>

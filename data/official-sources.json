@@ -1,0 +1,47 @@
+[
+  {
+    "id": "ncar",
+    "name": "المركز الوطني للوثائق والمحفوظات",
+    "short_name": "الأرشيف الوطني السعودي",
+    "description": "المصدر الأساسي لفهرس الأنظمة واللوائح والمراسيم والقرارات السعودية في المكتبة، مع حفظ رابط الوثيقة الأصلية.",
+    "url": "https://ncar.gov.sa/",
+    "scope": "6718 وثيقة مفهرسة",
+    "official": true
+  },
+  {
+    "id": "bog-systems",
+    "name": "ديوان المظالم — الأنظمة القضائية",
+    "short_name": "أنظمة ديوان المظالم",
+    "description": "أنظمة القضاء والمرافعات والتنفيذ والإثبات والمحاماة والتحكيم المنشورة في مركز معرفة ديوان المظالم.",
+    "url": "https://www.bog.gov.sa/knowledge-center/JudicialSystems/Pages/default.aspx",
+    "scope": "10 أنظمة أساسية",
+    "official": true
+  },
+  {
+    "id": "bog-blogs",
+    "name": "ديوان المظالم — المدونات القضائية",
+    "short_name": "المدونات القضائية",
+    "description": "مجموعات المبادئ والأحكام والسوابق القضائية الإدارية المنشورة رسميًا من ديوان المظالم.",
+    "url": "https://www.bog.gov.sa/knowledge-center/JudicialBlogs/Pages/default.aspx",
+    "scope": "مجموعات ومجلدات الأحكام والمبادئ",
+    "official": true
+  },
+  {
+    "id": "bfc",
+    "name": "الأمانة العامة للجان المنازعات والمخالفات المصرفية والتمويلية",
+    "short_name": "أنظمة وقواعد اللجان المصرفية",
+    "description": "القواعد والأنظمة واللوائح المنظمة للمنازعات المصرفية والتمويلية والمعلومات الائتمانية.",
+    "url": "https://bfc.gov.sa/ar-sa/Pages/RulesandRegulations.aspx",
+    "scope": "18 وثيقة رسمية",
+    "official": true
+  },
+  {
+    "id": "drive-office-1",
+    "name": "مجلد N9 القانوني — المكتب الرئيسي",
+    "short_name": "مصادر المكتب الرئيسي",
+    "description": "مكتبة مرجعية مصنفة تشمل التنفيذ والجنائي والصحي والتوطين والبلديات والعقارات واللوائح التنفيذية.",
+    "url": "https://drive.google.com/drive/folders/1bkHRt7ikKgEQhG7Em3I8uABEqsnCvVir?usp=drive_link",
+    "scope": "168 ملف PDF مفهرس",
+    "official": false
+  }
+]

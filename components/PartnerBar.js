@@ -5,8 +5,8 @@ export default function PartnerBar() {
   return (
     <div className="partner-bar flex flex-col items-center justify-center gap-5 rounded-xl p-5 sm:flex-row sm:gap-8">
       <div className="flex items-center gap-3">
-        <span className="rounded-lg bg-white p-1.5 shadow-md ring-1 ring-gold/40">
-          <Image src="/n9-logo.png" alt="N9 Library" width={56} height={26} className="h-7 w-auto" />
+        <span className="overflow-hidden rounded-lg bg-white p-1.5 shadow-md ring-1 ring-gold/40">
+          <Image src="/n9-library-logo.png" alt="N9 Library" width={56} height={56} className="h-12 w-12 scale-[1.24] rounded-md object-cover" />
         </span>
         <span className="font-serif text-lg font-bold" style={{ color: "var(--text)" }}>N9 LIBRARY</span>
       </div>
